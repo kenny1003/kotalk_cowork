@@ -1,6 +1,6 @@
 require 'nokogiri'
 
-1.step(91, 10) do |i|
+1.step(10, 1) do |i|
   doc = Nokogiri::HTML(open("result_#{i}.html"))
   doc.xpath("//tr").each do |y|
    
