@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  get 'admin/store'
+  get 'admin/index'
+
+  get 'store/store_index'
+
   devise_for :users
+
   root 'ko_tech_talk#index'
   get 'ko_tech_talk/index'
 #tongil
