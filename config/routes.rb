@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'ko_tech_talk#index'
   get 'ko_tech_talk/index'
 #tongil
