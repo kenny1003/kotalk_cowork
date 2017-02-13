@@ -1,0 +1,25 @@
+<div class="container" style="margin-left:30px; margin-top:30px;">
+    <h1>글쓰기</h1>
+    <form action="/board/update_post/<%= @post.id %>" method="POST">
+      <div class="form-group">
+        <label for="name">작성자</label>
+        <input name="name" type="text" class="form-control" id="name" value="<%= @post.name %>" placeholder="이름을 입력하세요">
+      </div>
+      <div class="form-group">
+        <label for="label_title">제목</label>
+        <input name="title" type="text" class="form-control" id="title" value="<%= @post.title %>" placeholder="제목을 입력하세요">
+      </div>
+      <div class="form-group">
+        <label for="label_content">내용 : </label>
+        <textarea name="content" class="form-control" rows="5" id="content" placeholder="내용을 입력하세요"><%= @post.content %></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">저장</button>
+      <button type="submit" formmethod="GET" formaction="/board/view_post/<%= @post.id %>" class="btn btn-default">돌아가기</button>
+    </form>
+</div>
+<hr>
+<div class="row" style="height:50px;">
+    <div class="col-md-8"></div>
+    <div class="col-md-1" style="text=align:right">ⓒ nemoland  </div>
+    <div class="col-md-3"></div>
+</div>
