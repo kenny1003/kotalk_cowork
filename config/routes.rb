@@ -11,11 +11,8 @@ Rails.application.routes.draw do
 
   root 'ko_tech_talk#index'
   get 'ko_tech_talk/index'
-<<<<<<< HEAD
 
 
-=======
-  
   get 'board' => 'board#index'
   get 'board/write_post_view'
   post 'board/write_post'
@@ -26,9 +23,6 @@ Rails.application.routes.draw do
   post 'board/write_comment/:board_id' => 'board#write_comment'
   get 'board/update_comment'
   get 'board/destroy_comment'
-  
-  
->>>>>>> 04484ecbc6c87e0669d6928f389f98b913587f31
 #tongil
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
