@@ -1,0 +1,38 @@
+.card{
+    width: 300px;
+    height : 150px;
+    border: 1px solid gray;
+    box-shadow: 1px 1px 3px #888;
+    border-top: 10px solid black;
+    min-height: 50px;
+    padding-: 10px;
+    margin: 20px;
+}
+
+#s_img{
+    border-radius: 50%;
+    width: 70px;
+    margin-top: 50px;
+}
+
+#store_title{
+    font-size: 250%;
+    font-weight: lighter;
+    margin-left: 10px;
+    margin-top: -50px;
+}
+
+#store_content{
+    margin: 30px;
+    font-family: segoe ui;
+    line-height: 1.4em;
+    font-size: 1.2em;
+}
+
+#mainbox{
+    font-family: calibri;
+    box-sizing: border-box;
+    justify-content: left;
+    display: flex;
+    flex-wrap: wrap;
+}

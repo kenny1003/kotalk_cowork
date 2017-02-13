@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   get 'admin/store'
   get 'admin/index'
-get 'notice' =>'notice#notice'
+  get 'notice' =>'notice#notice'
   get 'store/store_index'
 
-  devise_for :users
+
+  #회원가입 기능
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'ko_tech_talk#index'
   get 'ko_tech_talk/index'
+
+
 #tongil
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
