@@ -1,0 +1,1252 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>&#xc77c;&#xbc18;&#xacf5;&#xc9c0;&#xc0ac;&#xd56d;</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=1276,user-scalable=no">
+
+
+
+<script type="text/javascript" src="&#x2f;script&#x2f;holiday.js"></script>
+<link rel="stylesheet" href="&#x2f;eXPortal&#x2f;ctt&#x2f;css&#x2f;jquery-ui-1.8.24.custom.css" type="text/css" media="all" />
+<link rel="stylesheet" href="&#x2f;eXPortal&#x2f;ctt&#x2f;css&#x2f;timepicker&#x2f;jquery.timepicker.css" type="text/css" media="all" />
+<link rel="stylesheet" href="&#x2f;eXPortal&#x2f;ctt&#x2f;css&#x2f;community&#x2f;community-global.css" type="text/css" media="all" />
+
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jquery-ui-1.8.24.custom.min.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;mask&#x2f;jquery.maskedinput-1.3.min.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jquery.blockUI.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jstree&#x2f;jquery.jstree.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jstree&#x2f;jquery.cookie.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jstree&#x2f;jquery.hotkeys.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jstree&#x2f;dataset.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;ctt_util.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;validate.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;ctt&#x2f;js&#x2f;timepicker&#x2f;jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="&#x2f;eXPortal&#x2f;js&#x2f;exportal.util.js"></script>
+
+
+
+
+<link rel="stylesheet" href="&#x2f;css&#x2f;community-audit.css" type="text/css" media="all" />
+
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+	
+		window.onmessage = function(e){
+			
+			if(e.origin.indexOf("koreatech.ac.kr") != -1) {
+				if(e.data == "getChildHeight") {
+					callCheckHeight();
+				}
+			}
+		};
+	
+	
+	});
+	
+	function callCheckHeight() {
+		parent.postMessage( "{ \"childHeight\": \"" + $("body").outerHeight() + "\" }", "*");
+	}
+	
+</script>
+<script type="text/javascript">
+
+function checkStrByte(strObj, min, max, msg) {
+  var validate = true;
+
+  strObj.each(function(idx, data) {
+    var len = getByte($(data).attr("value"));
+
+    if(len > max || len < min) {
+      $(data).addClass( "ui-state-highlight" );
+      validate = false;
+    }
+  });
+
+  if(validate == false) {
+    ctt_util.openDialog("\uC815\uBCF4", msg);
+  }
+
+  return validate;
+
+}
+
+
+function checkNum(num, msg) {
+  var validate = true;
+  var filter = "^[0-9-+]+$";
+  var reg = RegExp(filter);
+  num.each(function(idx, data) {
+    if(reg.test(data.value) == false && data.value.length > 0) {
+    validate = false;
+    }
+  });
+    
+  if(msg == null || msg == 'undefined') {
+    msg = "";
+  }
+    
+  if(validate == false) {
+    ctt_util.openDialog("\uC815\uBCF4", msg + "\uB294\x28\uC740\x29 \uC22B\uC790\uD0C0\uC785\uC774\uC5EC\uC57C \uD569\uB2C8\uB2E4.");     return validate;
+  }
+    
+  return validate;
+}
+
+
+function getByte(str) {
+  var resultSize = 0;
+  if(str == null) {
+    return 0;
+  }
+
+  for(var i = 0; i < str.length; i++) {
+    var c = escape(str.charAt(i));
+    if(c.length == 1) {
+      resultSize++;
+    } else if(c.indexOf("%u") != -1) {
+      resultSize += 3;
+    } else {
+      resultSize++;
+    }
+  }
+
+  return resultSize;
+}
+
+function fncTrim(value) {
+  value = value.replace(/(^\s*)|(\s*$)/gi, "");
+  return value;
+};
+
+
+function isNumericData(strField) {
+  var i;
+  var ch;
+
+  for(i = 0; i < strField.length; i++) {
+    ch = strField.charAt(i);
+    if(!((ch >= '0') && (ch <= '9')))
+    return false;
+  }
+
+  return true;
+};
+
+function deleteTblRow(tableId, titleChkId, ChkId) {
+  $("#"+tableId).find("input[name='"+ ChkId +"']").each(function() {
+    if($(this).attr("checked") == "checked") {
+      if($(this).attr("id") != titleChkId) {
+        $(this).parent().parent().remove();
+      }
+    }
+  });
+}
+  
+function validateCharNumber(value) {
+  if(value.match(/^[^A-Z0-9ㄱ-ㅎ가-핳]*$/i)) {
+    return false;
+  } 
+  return true;
+}
+    
+
+function checkIpAddr(strObj, msg) {
+  var validate = true;
+    
+  var ipv4regex = "^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"; 
+  var ipv6regex = "^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$";
+    
+  var regIpv4 = RegExp(ipv4regex);
+  var regIpv6 = RegExp(ipv6regex);
+    
+  strObj.each(function(idx, data) {
+      if(regIpv4.test(data.value) == false && regIpv6.test(data.value) == false && data.value.length > 0) {
+        validate =  false;
+      }
+    });
+      
+    if(validate == false) {
+      ctt_util.openDialog("\uC815\uBCF4", msg);
+    }
+      
+  return validate;      
+}
+  
+
+function checkSpecialChar(obj) {
+  var value = $(obj).val();
+    
+  if(value == null) {
+    return false;
+  }
+
+  var reg = /[\|\&\\\\'\<\>'"]/gi;
+
+  if(reg.test(value) == true) {
+    ctt_util.openDialog("\uC815\uBCF4", $(obj).attr("title") + "\uB294\x28\uC740\x29 \uD2B9\uC218\uBB38\uC790\uB97C \uC785\uB825\uD558\uC2E4 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.");
+    $(obj).addClass("ui-state-highlight");
+    return false;
+  }
+    
+  return true;
+};
+  
+function checkNull(obj) {
+  var value = $(obj).val();
+    
+  if(value == null || value == 'undefined' || $.trim(value) == "") {
+    ctt_util.openDialog("\uC815\uBCF4", $(obj).attr("title") + "\x28\uC740\x29\uB294 \uD544\uC218 \uC785\uB825 \uD56D\uBAA9\uC785\uB2C8\uB2E4.");
+    return false;
+  }
+
+  return true;
+};
+  
+function isNotNull(value) {
+  if(value == null || value == 'undefined' || $.trim(value) == "") {
+    return false;
+  }
+  return true;
+};
+  
+function getStrByte(strObj) {
+  var max = $(strObj).attr("maxlength");
+  var value = $(strObj).val();
+  var len = getByte(value);
+
+  if(len > max) {
+    ctt_util.openDialog("\uC815\uBCF4", max + " byte \uBBF8\uB9CC\uC73C\uB85C \uC791\uC131 \uAC00\uB2A5\uD569\uB2C8\uB2E4.");
+      
+    value = cutStr(value, max);
+    $(strObj).val(value);
+      
+    return getByte(value);
+  } else {
+    return len;
+  }
+}
+  
+function cutStr(str, limit) {
+  var len = str.length;
+  var pos = 0;
+    
+  for(var i = 0 ; i < len ; i++) {
+    pos += getByte(str.charAt(i));
+      
+    if(pos >= limit-2) {
+      return str.substring(0, i);
+    }
+  }
+}
+
+</script>
+
+<script type="text/javascript">
+
+function movePage(url, param) {
+  var amp = "?";
+  
+  if(url.indexOf("?") > 0) {
+    amp = "&";
+  }
+  
+  url = url + amp + $.param(param, true);
+  
+  document.location = url;
+
+}
+
+</script>
+</head>
+<body>
+<div id="bi_cont_top" class="bc-b-block">
+  
+</div>
+<div id="bi_cont_middle" class="bc-b-block">
+  	
+<div class="bc-b-block bc-s-naviarea">
+  <div class="bc-b-section">
+    <div class="bc-b-subsection bc-s-navibox">
+    	<div><p class='navi_font'><img src = "/eXPortal/ctt/images/icon_home.png"/>&#xcee4;&#xbba4;&#xb2c8;&#xd2f0; > <span>&#xc77c;&#xbc18;&#xacf5;&#xc9c0;&#xc0ac;&#xd56d;</span></p></div>
+
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="&#x2f;eXPortal&#x2f;ctt&#x2f;css&#x2f;community&#x2f;skin&#x2f;list&#x2f;style.css" type="text/css" media="all" />
+
+
+<script type="text/javascript">
+
+function getValue(name) {
+
+	  var types = {
+	  	  };
+	  var type = types[name];
+
+	  var result = "";
+	  
+	  if(type == null || type == "undefined") {
+	    return "";
+	  }
+	  
+	  if(type == "cmb") {
+	    var obj = $("select[name=" + name + "]");
+	    result = $(obj).val();
+	  } else {
+	    if(type == "rdo" || type == "chk") { 
+	      var obj = $("input[name=" + name + "]:checked");
+	      if(obj != null) {
+	        result = $(obj).val();
+	      } else {
+	        result = "";
+	      }
+	    } else {
+	      var obj = $("input[name=" + name + "]");
+	      result = $(obj).val();
+	    }
+	  }
+	  return result;
+	}
+	
+function getPostListParameter() {
+  var condition = $("#searchCondition").val();
+  var conditionValue = $("#searchWord").val();
+  
+  if(condition == "creUserName") {
+    $("#creUserName").attr("value", conditionValue);
+  } else if(condition == "creUserDeptName") {
+    $("#creUserDeptName").attr("value", conditionValue);
+  }
+
+  var param = {
+      px : $("#prefix option:selected").val()
+    , sc : $("#searchCondition option:selected").val()
+    , sw : $("#searchWord").val()
+    , csdt : $("#creStartDate").val()
+    , cedt : $("#creEndDate").val()
+    , cuid : $("#creUserId").val()
+    , cuname : $("#creUserName").val()
+    , cudpname : $("#creUserDeptName").val()
+    , e0 : getValue("etc0") 
+    , e1 : getValue("etc1")     
+  };
+
+  for(var fd in param) {
+    if(param[fd] == '') {
+      delete param[fd];
+    }
+  }
+
+  return param;
+}
+
+var vfSearch = function() {
+  if(searchConditionChk()) {
+    var param = getPostListParameter();
+    movePage("/ctt/bb/bulletin?b=14&ls=20&ln=8&dm=l", param);
+  } else {
+    ctt_util.openDialog("\uC815\uBCF4", "\uAE00 \uBC88\uD638"+"\uB294\x28\uC740\x29 \uC22B\uC790\uD0C0\uC785\uC774\uC5EC\uC57C \uD569\uB2C8\uB2E4.");
+  }
+}
+
+function checkSelectedChk() {
+  var chkFlag = false;
+  
+  $("input[name='chk']").each(function() {
+    if($(this).is(":checked")) {
+      chkFlag = true;
+    }
+  });
+  
+  return chkFlag;
+}
+
+function searchConditionChk() {
+  var searchCond = $("#searchCondition option:selected").val();
+  var searchWord = $("#searchWord").val();
+  
+  if(searchCond == "postSeq") {
+    if(validator.isNumber(searchWord)) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return true;
+  }
+}
+
+$(document).ready(function() {
+
+	  $("#listSize").change(function() {
+	    var url = $("#listSize option:selected").attr("url");
+	    window.location = url;
+	  });
+
+	  $("#btnSearch").click(vfSearch);
+
+	  $("#searchWord").keydown(function(e) {
+	    if(e.keyCode == 13) {
+	      vfSearch();
+	      return false;
+	    }
+	  });
+	  
+	  	  $("#allChk").click(function() {
+	    $("#boardTypeList").find('input[name="chk"]').attr('checked', $(this).is(":checked"));
+	  });
+	  
+
+	  $("#boardTypeList tr[data-name=post_list] td:not(td[data-name='bn_chk'])").click(function(){
+	  
+	  	  	    var url = $(this).parent().attr("data-url");
+	    
+	    if(isNotNull(url) == false) {
+	      return;
+	    }
+	    
+	    window.location = url;
+	   	  });
+ 
+
+	  $("#prefix").change(vfSearch);
+	  
+	});
+
+	function checkSelectedChk() {
+	  var chkFlag = false;
+	  
+	  $("input[name='chk']").each(function() {
+	    if($(this).is(":checked")) {
+	      chkFlag = true;
+	    }
+	  });
+	  
+	  return chkFlag;
+	}
+	</script>
+
+<div class="bc-b-block">
+  <div class="bc-b-block"><!-- Search content -->
+    <div class="bc-b-section bc-s-topsearchtbl">
+      <div class="bc-b-rowsection bc-s-topsearchrow">
+        <div class="bc-b-subsection bc-s-topcond">
+          <ul>
+
+
+
+
+
+
+  
+  
+            <li>
+              <select id="searchCondition" name="searchCondition">
+                                <option value="title" >&#xc81c;&#xbaa9;</option>                <option value="content" >&#xbcf8;&#xbb38;</option>                <option value="creUserName" >&#xc791;&#xc131;&#xc790;</option>                <option value="titleOrContent" >&#xc81c;&#xbaa9;&#x2b;&#xbcf8;&#xbb38;</option>              </select>
+              <input type="hidden" id="creUserName" name="creUserName" value="" />
+              <input type="hidden" id="creUserDeptName" name="creUserDeptName" value="" />
+            </li>
+            <li>
+              <input type="text" id="searchWord" name="searchWord" value="" />
+            </li>
+
+          </ul>
+        </div>
+        <div class="bc-b-subsection bc-s-topbtn">
+          <ul>
+            <li>
+              <input type="button" id="btnSearch" name="btnSearch" class="bc-s-btn bc-s-btnsearch" value="&#xac80;&#xc0c9;" />            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bc-b-block"><!-- prefix & page & button content -->
+    <div class="bc-b-section bc-s-topbtnstbl">
+      <div class="bc-b-rowsection bc-s-topbtnsrow">        <div class="bc-b-subsection bc-s-toptbllegend">        <select id="listSize" name="listSize">
+  <option value="10"  url="/ctt/bb/bulletin?b=14&ls=10&ln=8&dm=m" >10</option>
+  <option value="20"  selected >20</option>
+  <option value="30"  url="/ctt/bb/bulletin?b=14&ls=30&ln=8&dm=m" >30</option>
+  <option value="40"  url="/ctt/bb/bulletin?b=14&ls=40&ln=8&dm=m" >40</option>
+  <option value="50"  url="/ctt/bb/bulletin?b=14&ls=50&ln=8&dm=m" >50</option>
+  <option value="60"  url="/ctt/bb/bulletin?b=14&ls=60&ln=8&dm=m" >60</option>
+</select>
+&#xac74;&#x2f;&#xd398;&#xc774;&#xc9c0;(&#xcd1d; <span class="bc-s-sum">18,010</span> &#xac74;)
+         </div>
+        <div class="bc-b-subsection bc-s-topbtn">
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+
+  $("#manage").click(function() {
+    window.location = "\x2Fctt\x2Fadm\x2FboardAdmin\x2Fview\x3Fb\x3D14\x26rtnUrl\x3D\x252Fctt\x252Fbb\x252Fbulletin\x253Fb\x253D14\x2526ls\x253D20\x2526ln\x253D8\x2526dm\x253Dm";
+  });
+
+  $("#addPost").click(function() {
+    window.location = "\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D8\x26dm\x3Dn";
+  });
+
+  
+  $("#btnDelete").click(function() {
+    var result = checkSelectedChk();
+    var searchResult = searchConditionChk();
+    
+    if(result == false) {
+      ctt_util.openDialog("\uC815\uBCF4", "\uD56D\uBAA9\uC744 \uC120\uD0DD\uD558\uC138\uC694.");
+      return;
+    }
+    
+    if(searchResult == false) {
+      ctt_util.openDialog("\uC815\uBCF4", "\uAE00 \uBC88\uD638"+"\uB294\x28\uC740\x29 \uC22B\uC790\uD0C0\uC785\uC774\uC5EC\uC57C \uD569\uB2C8\uB2E4.");
+      return;
+    }
+    
+    ctt_util.openDialog("\uC815\uBCF4", "\uC120\uD0DD\uD55C \uBAA9\uB85D\uC744 \uC0AD\uC81C\uD569\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
+      $(this).dialog("close");
+      deletePost();
+    }});
+  });
+  
+  $("#btnDeleteFull").click(function() {
+    var result = checkSelectedChk();
+    var searchResult = searchConditionChk();
+    
+    if(result == false) {
+      ctt_util.openDialog("\uC815\uBCF4", "\uD56D\uBAA9\uC744 \uC120\uD0DD\uD558\uC138\uC694.");
+      return;
+    }
+    
+    if(searchResult == false) {
+      ctt_util.openDialog("\uC815\uBCF4", "\uAE00 \uBC88\uD638"+"\uB294\x28\uC740\x29 \uC22B\uC790\uD0C0\uC785\uC774\uC5EC\uC57C \uD569\uB2C8\uB2E4.");
+      return;
+    }
+    
+    ctt_util.openDialog("\uC815\uBCF4", "\uC644\uC804 \uC0AD\uC81C \uC774\uD6C4\uC5D0\uB294 \uBCF5\uC6D0\uC774 \uBD88\uAC00\uB2A5 \uD569\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
+      $(this).dialog("close");
+      removePost();
+    }});
+  });
+  
+  
+  //순서 변경 dialog open
+  $("#btnOrdering").click(function(){
+    if(openOrderingDialog) {
+      openOrderingDialog();
+    } else {
+      ctt_util.openDialog("\uC815\uBCF4", "Not exist ordering dialog.");
+    }
+  });
+});
+
+function saveOrder() {
+  alert("save order!");
+}
+
+function removePost() {
+  var postSeqArr = new Array();
+  var i = 0;
+
+  $("#boardTypeList").find("input[name='chk']").each(function() {
+    if($(this).attr("checked") == "checked") {
+      postSeqArr[i] = $(this).val();
+      i++;
+    }
+  });
+
+  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D8\x26dm\x3Dl\x26a\x3Drp", {'postSeqs' : postSeqArr.toString()});
+  
+  if(vbSuccess) {
+    ctt_util.openDialog("\uC815\uBCF4", "\uC815\uC0C1\uC801\uC73C\uB85C \uC0AD\uC81C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
+      var param = getPostListParameter();
+      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D8\x26dm\x3Dl", param);
+    }});
+  }
+}
+
+function deletePost() {
+  var postSeqArr = new Array();
+  var i = 0;
+
+  $("#boardTypeList").find("input[name='chk']").each(function() {
+    if($(this).attr("checked") == "checked") {
+      postSeqArr[i] = $(this).val();
+      i++;
+    }
+  });
+
+  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D8\x26dm\x3Dl\x26a\x3Ddp", {'postSeqs' : postSeqArr.toString()});
+  
+  if(vbSuccess) {
+    ctt_util.openDialog("\uC815\uBCF4", "\uC815\uC0C1\uC801\uC73C\uB85C \uC0AD\uC81C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
+      var param = getPostListParameter();
+      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D8\x26dm\x3Dl", param);
+    }});
+  }
+}
+
+function restorePost() {
+  var postSeqArr = new Array();
+  var i = 0;
+
+  $("#boardTypeList").find("input[name='chk']").each(function() {
+    if($(this).attr("checked") == "checked") {
+      postSeqArr[i] = $(this).val();
+      i++;
+    }
+  });
+
+  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D8\x26dm\x3Dm\x26a\x3Drsp", {'postSeqs' : postSeqArr.toString()});
+  
+  if(vbSuccess) {
+    ctt_util.openDialog("\uC815\uBCF4", "\uC815\uC0C1\uC801\uC73C\uB85C \uBCF5\uC6D0\uB418\uC5C8\uC2B5\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
+      var param = getPostListParameter();
+      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D8\x26dm\x3Dl", param);
+    }});
+  }
+}
+</script>
+
+<ul>
+</ul>
+  
+<script type="text/javascript">
+$(document).ready(function(){
+  
+    $("#ordering-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    width:700,
+    modal: true,
+    create: function(){
+      $("#posts").sortable({
+        connectWith: "#topPosts,#bottomPosts",
+        placeholder: "ui-state-highlight",
+        update: function(event, ui) {
+          if($(this).find("li").length > 0) {
+            $(this).css("background-color", "white");
+          } else {
+            $(this).css("background-color", "#E6E6E6");
+          }
+        }
+      });
+      
+      $("#topPosts").sortable({
+        connectWith: "#posts,#bottomPosts",
+        placeholder: "ui-state-highlight" ,
+        update: function(event, ui) {
+          if($(this).find("li").length > 0) {
+            $(this).css("background-color", "white");
+          } else {
+            $(this).css("background-color", "#E6E6E6");
+          }
+        }
+      });
+      
+      $("#bottomPosts").sortable({
+        connectWith: "#posts,#topPosts",
+        placeholder: "ui-state-highlight",
+        update: function(event, ui) {
+          if($(this).find("li").length > 0) {
+            $(this).css("background-color", "white");
+          } else {
+            $(this).css("background-color", "#E6E6E6");
+          }
+        }
+      });
+      
+      $("#noticePosts").sortable({
+        placeholder: "ui-state-highlight",
+        update: function(event, ui) {
+          if($(this).find("li").length > 0) {
+            $(this).css("background-color", "white");
+          } else {
+            $(this).css("background-color", "#E6E6E6");
+          }
+        }
+      });
+      
+      $(".child_post").sortable({
+        placeholder: "ui-state-highlight"
+      });
+      
+      $("#bi_orderingSave").click(function(){
+        if(saveOrder()) {
+          $("#ordering-dialog").dialog( "close" );
+        }
+      });
+
+      $("#bi_orderingClose").click(function(){
+        $("#ordering-dialog").dialog( "close" );
+      });
+    }
+  });
+});
+
+function openOrderingDialog() {
+  $("#ordering-dialog").dialog("open");
+}
+
+function saveOrder() {
+  
+    var topPosts = $("#bi_topPosts").find("input").serialize();
+  
+    var bottomPosts = $("#bi_bottomPosts").find("input").serialize();
+  
+    var noticePosts = $("#bi_noticePosts").find("input").serialize();
+  
+    var posts = $("#bi_posts").find("input").serialize();
+  
+  
+  var param = topPosts.replace(/post_/g, "top_")
+                + "&" + bottomPosts.replace(/post_/g, "bottom_") 
+                + "&" + noticePosts.replace(/post_/g, "notice_")
+                + "&" + posts;
+  ctt.actionSubmit("/ctt/bb/bulletin?b=14&a=po", param, false, function(poResult, psSts, poJqXHR){
+    if(poResult.success) {
+      ctt_util.openDialog("\uC815\uBCF4", poResult.msg, {txt:"\uD655\uC778", func:function() {
+        if(poResult.data != "0") {
+          document.location.reload(true);
+        } else {
+          $(this).dialog("close");
+        }
+      }});
+    } else {
+      if(!poResult.msg) {
+        poResult.msg = "\uC8C4\uC1A1\uD569\uB2C8\uB2E4. \uC11C\uBE44\uC2A4 \uCC98\uB9AC\uC911 \uC624\uB958\uAC00 \uBC1C\uC0DD\uD558\uC600\uC2B5\uB2C8\uB2E4.";
+      }
+      
+      ctt_util.openDialog("\uC815\uBCF4", poResult.msg);
+    }
+  }, function() {
+    ctt_util.openDialog("\uC815\uBCF4", "\uC8C4\uC1A1\uD569\uB2C8\uB2E4. \uC11C\uBE44\uC2A4 \uCC98\uB9AC\uC911 \uC624\uB958\uAC00 \uBC1C\uC0DD\uD558\uC600\uC2B5\uB2C8\uB2E4.");
+  });
+}
+
+</script>
+
+
+<div id="ordering-dialog" title="&#xc21c;&#xc11c;&#xbcc0;&#xacbd;" style="display:none;">
+  <div class="bc-b-block bc-s-dlgcontent" style="max-height: none;">
+      <div class="bc-b-block">
+        <div class="bc-b-section bc-s-topbtnstbl">
+          <div class="bc-b-subsection bc-s-topbtn">
+            <ul>
+              <li><input type="button" id="bi_orderingSave"  value="&#xc800;&#xc7a5;" class="bc-s-btn bc-s-btnsave" /></li>            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="bi_ordering_contents" class="bc-b-block">
+            
+      
+            <div class="bc-b-block"><h2 class="bc-s-subtitle">&#xcd5c;&#xc0c1;&#xb2e8; &#xae00;</h2></div>
+      <div id="bi_topPosts" >
+        <ul id="topPosts">
+          
+        </ul>
+      </div>
+      
+            <div class="bc-b-block"><h2 class="bc-s-subtitle">&#xcd5c;&#xd558;&#xb2e8; &#xae00;</h2></div>
+      <div id="bi_bottomPosts">
+        <ul id="bottomPosts">
+        </ul>
+      </div>
+      
+            <div class="bc-b-block"><h2 class="bc-s-subtitle">&#xd604;&#xc7ac; &#xd398;&#xc774;&#xc9c0; &#xae00;</h2></div>
+      <div id="bi_postsArea" >
+      <div id="bi_noticePosts">
+        <ul id="noticePosts">
+                                                </ul>
+      </div>
+      <div id="bi_posts" >
+        <ul id="posts">
+            <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19735">
+            <input type="hidden" name="post_group" value="19735">
+            <div>
+              [ 19735 ]
+            </div>
+            <div>
+              <span style="" title="[산학협력단]2017년도 주요 정부부처별 연구개발사업(상향식 공모) 예산 및 신규사업 안내">[산학협력단]2017년도 주요 정부부처별 연구개발사업(상향식 공모) 예산 및 신규사업 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1025433</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19734">
+            <input type="hidden" name="post_group" value="19734">
+            <div>
+              [ 19734 ]
+            </div>
+            <div>
+              <span style="" title="2016 상담 체험 수기 공모전 수상자 발표">2016 상담 체험 수기 공모전 수상자 발표 </span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1027722</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19733">
+            <input type="hidden" name="post_group" value="19733">
+            <div>
+              [ 19733 ]
+            </div>
+            <div>
+              <span style="" title="[산학협력단 신규과제공고]산업통상자원부 2017년 산업기술혁신사업 통합 시행계획 공고">[산학협력단 신규과제공고]산업통상자원부 2017년 산업기술혁신사업 통합 시행계획 공고</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1012093</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19732">
+            <input type="hidden" name="post_group" value="19732">
+            <div>
+              [ 19732 ]
+            </div>
+            <div>
+              <span style="" title="2016. 동계방학 구글 견학 프로그램">2016. 동계방학 구글 견학 프로그램</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1029674</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19731">
+            <input type="hidden" name="post_group" value="19731">
+            <div>
+              [ 19731 ]
+            </div>
+            <div>
+              <span style="" title="2016-동계 MSC튜터링 학습프로그램 튜티(배우는 학생) 모집 안내">2016-동계 MSC튜터링 학습프로그램 튜티(배우는 학생) 모집 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1001026</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19730">
+            <input type="hidden" name="post_group" value="19730">
+            <div>
+              [ 19730 ]
+            </div>
+            <div>
+              <span style="" title="산업통상자원부 규정 개정 안내(2016.12.13.)">산업통상자원부 규정 개정 안내(2016.12.13.)</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1012093</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19729">
+            <input type="hidden" name="post_group" value="19729">
+            <div>
+              [ 19729 ]
+            </div>
+            <div>
+              <span style="" title="[자기관리 프로그램] 2017년, 제대로 살아보자!">[자기관리 프로그램] 2017년, 제대로 살아보자!</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1027852</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19728">
+            <input type="hidden" name="post_group" value="19728">
+            <div>
+              [ 19728 ]
+            </div>
+            <div>
+              <span style="" title="[특성화/전전통] 2016 이공계 취업캠프 모집공고">[특성화/전전통] 2016 이공계 취업캠프 모집공고</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1022532</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19727">
+            <input type="hidden" name="post_group" value="19727">
+            <div>
+              [ 19727 ]
+            </div>
+            <div>
+              <span style="" title="[온라인평생교육원] [재공고] 이러닝 콘텐츠 자산관리 서버의 이관 및 CMS 수정 보조인력 모집">[온라인평생교육원] [재공고] 이러닝 콘텐츠 자산관리 서버의 이관 및 CMS 수정 보조인력 모집</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1025332</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19726">
+            <input type="hidden" name="post_group" value="19726">
+            <div>
+              [ 19726 ]
+            </div>
+            <div>
+              <span style="" title="2017학년도 1학기 정기입사 선발 계획">2017학년도 1학기 정기입사 선발 계획</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1008895</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19725">
+            <input type="hidden" name="post_group" value="19725">
+            <div>
+              [ 19725 ]
+            </div>
+            <div>
+              <span style="" title="2016년 동계 계절학기 외국어 특강">2016년 동계 계절학기 외국어 특강</span>             </div>
+            <span class="bc-s-sortdate">2016-12-15</span>
+            <span class="bc-s-sortuser">1025633</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19723">
+            <input type="hidden" name="post_group" value="19723">
+            <div>
+              [ 19723 ]
+            </div>
+            <div>
+              <span style="" title="재학생 대상 행정서비스 만족도 설문조사 실시 안내">재학생 대상 행정서비스 만족도 설문조사 실시 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-14</span>
+            <span class="bc-s-sortuser">1027973</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19722">
+            <input type="hidden" name="post_group" value="19722">
+            <div>
+              [ 19722 ]
+            </div>
+            <div>
+              <span style="" title="[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고">[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고</span>             </div>
+            <span class="bc-s-sortdate">2016-12-14</span>
+            <span class="bc-s-sortuser">1028872</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19721">
+            <input type="hidden" name="post_group" value="19721">
+            <div>
+              [ 19721 ]
+            </div>
+            <div>
+              <span style="" title="2016년 6차 모의토익 결시자 문제집 수령 안내">2016년 6차 모의토익 결시자 문제집 수령 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-14</span>
+            <span class="bc-s-sortuser">1025633</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19720">
+            <input type="hidden" name="post_group" value="19720">
+            <div>
+              [ 19720 ]
+            </div>
+            <div>
+              <span style="" title="인플루엔자 유행주의 안내">인플루엔자 유행주의 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1000289</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19719">
+            <input type="hidden" name="post_group" value="19719">
+            <div>
+              [ 19719 ]
+            </div>
+            <div>
+              <span style="" title="2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)">2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1000470</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19718">
+            <input type="hidden" name="post_group" value="19718">
+            <div>
+              [ 19718 ]
+            </div>
+            <div>
+              <span style="" title="금일(12/13화) 잡카페 야간운영 제한"> 금일(12/13화) 잡카페 야간운영 제한</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1029472</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19717">
+            <input type="hidden" name="post_group" value="19717">
+            <div>
+              [ 19717 ]
+            </div>
+            <div>
+              <span style="" title="유콘시스템 기업방문 &quot;드론 아카데미&quot; 참가자 모집">유콘시스템 기업방문 "드론 아카데미" 참가자 모집 </span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1013613</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19716">
+            <input type="hidden" name="post_group" value="19716">
+            <div>
+              [ 19716 ]
+            </div>
+            <div>
+              <span style="" title="●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)">●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1013613</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19715">
+            <input type="hidden" name="post_group" value="19715">
+            <div>
+              [ 19715 ]
+            </div>
+            <div>
+              <span style="" title="2016학년도 2학기 기말고사 격려 간식제공 행사 실시">2016학년도 2학기 기말고사 격려 간식제공 행사 실시</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1000470</span>
+            
+                                                                </li>
+          </ul>
+      </div>
+      </div>
+     
+      
+    </div>
+  </div>
+  <div class="bc-b-block bc-s-dlgbottom">
+    <div class="bc-b-section bc-s-midbtn">
+      <div class="bc-b-rowsection">
+        <ul>
+          <li>
+            <input type="button" id="bi_orderingClose" value="&#xb2eb;&#xae30;" class="bc-s-btn bc-s-btnclose" />
+          </li>        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bc-b-block">
+
+
+  <table id="boardTypeList" style="width:100%;" class="bc-s-tbllist">
+    <thead>
+      <tr>
+        <th class="bc-s-post_seq">&#xae00;&#xbc88;&#xd638;</th>
+        <th class="bc-s-title">&#xc81c;&#xbaa9;</th>
+        <th class="bc-s-cre_dt">&#xb4f1;&#xb85d;&#xc77c;</th>
+        <th class="bc-s-cre_user_name">&#xc791;&#xc131;&#xc790;</th>
+        <th class="bc-s-visit_cnt">&#xc870;&#xd68c;&#xc218;</th>
+      </tr>
+    </thead>
+    <tbody>
+              <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19735">
+                      <td class="bc-s-post_seq">19735</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[산학협력단]2017년도 주요 정부부처별 연구개발사업(상향식 공모) 예산 및 신규사업 안내">[산학협력단]2017년도 주요 정부부처별 연구개발사업(상향식 공모) 예산 및 신규사업 안내</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xc5f0;&#xad6c;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">320
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19734">
+                      <td class="bc-s-post_seq">19734</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016 상담 체험 수기 공모전 수상자 발표">2016 상담 체험 수기 공모전 수상자 발표 </span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xc0c1;&#xb2f4;&middot;&#xc9c4;&#xb85c;&#xac1c;&#xbc1c;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">390
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19733">
+                      <td class="bc-s-post_seq">19733</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[산학협력단 신규과제공고]산업통상자원부 2017년 산업기술혁신사업 통합 시행계획 공고">[산학협력단 신규과제공고]산업통상자원부 2017년 산업기술혁신사업 통합 시행계획 공고</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xc5f0;&#xad6c;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">346
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19732">
+                      <td class="bc-s-post_seq">19732</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016. 동계방학 구글 견학 프로그램">2016. 동계방학 구글 견학 프로그램</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xcc3d;&#xc5c5;&#xc9c0;&#xc6d0;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">1,140
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19731">
+                      <td class="bc-s-post_seq">19731</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016-동계 MSC튜터링 학습프로그램 튜티(배우는 학생) 모집 안내">2016-동계 MSC튜터링 학습프로그램 튜티(배우는 학생) 모집 안내</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">MSC&#xad50;&#xc721;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">484
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19730">
+                      <td class="bc-s-post_seq">19730</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="산업통상자원부 규정 개정 안내(2016.12.13.)">산업통상자원부 규정 개정 안내(2016.12.13.)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xc5f0;&#xad6c;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">102
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19729">
+                      <td class="bc-s-post_seq">19729</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[자기관리 프로그램] 2017년, 제대로 살아보자!">[자기관리 프로그램] 2017년, 제대로 살아보자!</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xc0c1;&#xb2f4;&#xc9c4;&#xb85c;&#xac1c;&#xbc1c;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">312
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19728">
+                      <td class="bc-s-post_seq">19728</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[특성화/전전통] 2016 이공계 취업캠프 모집공고">[특성화/전전통] 2016 이공계 취업캠프 모집공고</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xd2b9;&#xc131;&#xd654;&#xc0ac;&#xc5c5;&#xb2e8;</td>
+                        <td class="bc-s-visit_cnt">321
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19727">
+                      <td class="bc-s-post_seq">19727</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[온라인평생교육원] [재공고] 이러닝 콘텐츠 자산관리 서버의 이관 및 CMS 수정 보조인력 모집">[온라인평생교육원] [재공고] 이러닝 콘텐츠 자산관리 서버의 이관 및 CMS 수정 보조인력 모집</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xc628;&#xb77c;&#xc778;&#xd3c9;&#xc0dd;&#xad50;&#xc721;&#xc6d0;</td>
+                        <td class="bc-s-visit_cnt">158
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19726">
+                      <td class="bc-s-post_seq">19726</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2017학년도 1학기 정기입사 선발 계획">2017학년도 1학기 정기입사 선발 계획</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">1&#xcea0; &#xc0dd;&#xd65c;&#xad00;</td>
+                        <td class="bc-s-visit_cnt">1,694
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19725">
+                      <td class="bc-s-post_seq">19725</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016년 동계 계절학기 외국어 특강">2016년 동계 계절학기 외국어 특강</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-15</td>
+                        <td class="bc-s-cre_user_name">&#xc789;&#xae00;&#xb9ac;&#xc26c;&#xc564;&#x2f;&#xad6d;&#xc81c;&#xad50;&#xc721;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">381
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19723">
+                      <td class="bc-s-post_seq">19723</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="재학생 대상 행정서비스 만족도 설문조사 실시 안내">재학생 대상 행정서비스 만족도 설문조사 실시 안내</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-14</td>
+                        <td class="bc-s-cre_user_name">&#xc804;&#xb7b5;&#xd3c9;&#xac00;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">271
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19722">
+                      <td class="bc-s-post_seq">19722</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고">[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-14</td>
+                        <td class="bc-s-cre_user_name">LINC&#xc0ac;&#xc5c5;&#xb2e8;</td>
+                        <td class="bc-s-visit_cnt">344
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19721">
+                      <td class="bc-s-post_seq">19721</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016년 6차 모의토익 결시자 문제집 수령 안내">2016년 6차 모의토익 결시자 문제집 수령 안내</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-14</td>
+                        <td class="bc-s-cre_user_name">&#xad6d;&#xc81c;&#xad50;&#xc721;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">123
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19720">
+                      <td class="bc-s-post_seq">19720</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="인플루엔자 유행주의 안내">인플루엔자 유행주의 안내</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xbcf4;&#xac74;&#xc2e4;</td>
+                        <td class="bc-s-visit_cnt">443
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19719">
+                      <td class="bc-s-post_seq">19719</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)">2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xc0ac;&#xd68c;&#xbd09;&#xc0ac;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">587
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19718">
+                      <td class="bc-s-post_seq">19718</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="금일(12/13화) 잡카페 야간운영 제한"> 금일(12/13화) 잡카페 야간운영 제한</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xcde8;&#xc5c5;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">269
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19717">
+                      <td class="bc-s-post_seq">19717</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="유콘시스템 기업방문 &quot;드론 아카데미&quot; 참가자 모집">유콘시스템 기업방문 "드론 아카데미" 참가자 모집 </span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xcde8;&#xc5c5;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">354
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19716">
+                      <td class="bc-s-post_seq">19716</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)">●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xcde8;&#xc5c5;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">706
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;r&amp;p&#x3d;19715">
+                      <td class="bc-s-post_seq">19715</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016학년도 2학기 기말고사 격려 간식제공 행사 실시">2016학년도 2학기 기말고사 격려 간식제공 행사 실시</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xd559;&#xc0dd;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">839
+</td>
+              </tr>
+      </tbody>
+  </table>
+</div>
+
+
+<div class="bc-b-block">
+  <div class="bc-b-section bc-s-pageidxbox">
+    <div class="bc-b-rowsection">
+      <div class="bc-b-subsection bc-s-pageidx">
+          <a class="bc-s-pageidxfirst"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;1&amp;dm&#x3d;m" >
+        <img src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;list_page_first.gif"  alt="&#xcc98;&#xc74c;&#xc73c;&#xb85c;"/>
+    <!-- onmouseover="imgOver(this)" onmouseout="imgOut(this)" -->
+        </a>
+                <img src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;list_page_previous.gif"  alt="&#xc774;&#xc804;&#xd398;&#xc774;&#xc9c0;">   
+    <!-- onmouseover="imgOver(this)" onmouseout="imgOut(this)" --> 
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;1&amp;dm&#x3d;m" >1</a>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;m" >2</a>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;3&amp;dm&#x3d;m" >3</a>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;4&amp;dm&#x3d;m" >4</a>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;5&amp;dm&#x3d;m" >5</a>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;6&amp;dm&#x3d;m" >6</a>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;7&amp;dm&#x3d;m" >7</a>
+                <b>8</b>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;m" >9</a>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;10&amp;dm&#x3d;m" >10</a>
+                <a class="bc-s-pageidxnext"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;11&amp;dm&#x3d;m" >
+        <img src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;list_page_next.gif" alt="&#xb2e4;&#xc74c;&#xd398;&#xc774;&#xc9c0;">
+        </a>
+                <a class="bc-s-pageidxlast"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;901&amp;dm&#x3d;m" >
+        <img src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;list_page_last.gif" alt="&#xb9e8;&#xb4a4;&#xb85c;"/>
+        </a>
+            </div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="bi_cont_bottom" class="bc-b-block">
+  
+</div>
+
+</body>
+</html>

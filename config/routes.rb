@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'admin/store'
   get 'admin/index'
-
+get 'notice' =>'notice#notice'
   get 'store/store_index'
 
   devise_for :users
