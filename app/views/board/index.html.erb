@@ -1,0 +1,35 @@
+
+
+<div class="container" style="margin-left:30px; margin-top:30px;">
+    <h1>자유게시판</h1> <br>
+    <table class="table table-bordered" style="text-align:center;">
+      <tr style="font-weight:bold; color:white; background-color:gray;">
+        <td class="col-md-1">글번호</td>
+        <td class="col-md-8">제목</td>
+        <td class="col-md-1">등록일</td>
+        <td class="col-md-1">작성자</td>
+        <td class="col-md-1">조회수</td>
+      </tr>
+      <% @post.each do |p| %>
+        <tr>
+          <td><%= p.id %></td>
+          <td class="title" onclick="location.href='/board/view_post/<%= p.id %>'" style="text-align:left"><%= p.title %></td>
+          <td><%= (p.created_at).in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></td>
+          <td><%= p.name %></td>
+          <td><%= p.hits %></td>
+        </tr>
+      <% end %>
+    </table>
+    <button type="submit" onclick="location.href='/board/write_post_view'" class="btn btn-default">글쓰기</button>
+</div>
+<hr>
+<div class="row" style="height:50px;">
+    <div class="col-md-8"></div>
+    <div class="col-md-1" style="text=align:right">ⓒ nemoland  </div>
+    <div class="col-md-3"></div>
+</div>
+
+<style>
+  td.title { text-align:left; }
+  td.title:hover { color:black; font-weight:bold; text-decoration:underline; cursor:pointer; }
+</style>

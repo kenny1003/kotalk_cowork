@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213123616) do
+ActiveRecord::Schema.define(version: 20170213141117) do
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "hits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "board_id"
+    t.text     "content"
+    t.string   "nickname"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "notices", force: :cascade do |t|
     t.string   "url"
