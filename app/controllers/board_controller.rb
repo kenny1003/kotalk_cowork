@@ -65,9 +65,22 @@ class BoardController < ApplicationController
   end
 
   def update_comment
+    @comment = Comment.find(params[:board_id])
+    @comment.content = params[:comment]
+    @comment.board_id = params[:board_id]
+    @comment.nickname = params[:nickname]
+    
+    @post.save
+    
+    post_number = params[:board_id]
+    redirect_to "/board/view_post/" + post_number
   end
 
   def destroy_comment
+    @comment = Comment.find(params[:comment_id])
+    @comment.destroy
+    
+    redirect_to :back 
   end
   
 end

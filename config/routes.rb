@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'board/destroy_post/:board_id' => 'board#destroy_post'
   post 'board/write_comment/:board_id' => 'board#write_comment'
   get 'board/update_comment'
-  get 'board/destroy_comment'
+  get 'board/destroy_comment/:comment_id' => 'board#destroy_comment'
 #tongil
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
