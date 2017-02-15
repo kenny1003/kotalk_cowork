@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
   
+  get 'room' => 'room#index'
+
   get 'admin/store'
   get 'admin/index'
   get 'notice' =>'notice#notice'
   get 'store/store_index'
 
-  devise_for :users
+
+  #회원가입 기능
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'ko_tech_talk#index'
   get 'ko_tech_talk/index'
-  
+
+
   get 'board' => 'board#index'
   get 'board/write_post_view'
   post 'board/write_post'
@@ -19,9 +24,7 @@ Rails.application.routes.draw do
   get 'board/destroy_post/:board_id' => 'board#destroy_post'
   post 'board/write_comment/:board_id' => 'board#write_comment'
   get 'board/update_comment'
-  get 'board/destroy_comment'
-  
-  
+  get 'board/destroy_comment/:comment_id' => 'board#destroy_comment'
 #tongil
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
