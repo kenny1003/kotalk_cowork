@@ -38,13 +38,24 @@ end
 
 end
 #-------------------------------
+def destroy_notice_db
+   Notice.delete_all 
+end
+#-------------------------------
     def notice
-if !Notice.exists?(1) #or Notice.find(1).created_at.utc < (Time.now + 60.minutes).utc
+if !Notice.exists?(1) or Notice.find(1).created_at.to_i < (Time.now - 120.minutes).to_i
+destroy_notice_db
 generate_post
 crawling_notice
+puts "#{Notice.find(1).created_at.utc}"
 notice
 else
 @every_url=Notice.all
+puts "#{Notice.find(1).created_at.to_i}"
+puts "#{Time.now.to_i}"
+puts "#{60.minutes.to_i}"
+puts "#{(Time.now + 60.minutes).to_i}"
+
 end
 end
 end
