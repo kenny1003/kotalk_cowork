@@ -1,2 +1,31 @@
 <h1 style="text-align:center">주변상점 입력</h1>
-<p>Find me in app/views/admin/store.html.erb</p>
+
+
+<div class = "container">
+  <form action="/admin/store_write" metho="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">상점 이름</label>
+      <input name="store_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+      <label for="exampleInputEmail1">전화번호</label>
+      <input name="store_number" type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+      <label for="exampleInputEmail1">카테고리</label>
+      <input name="store_category" type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+
+    </div>
+    <button type="submit" class="btn btn-default">입력</button>
+  </form>
+
+  </br>
+
+
+
+  <div class="list-group">
+    <% @store_all.each do |s|%>
+    <a href="#" class="list-group-item">상호명: <%= s.name %></br>전화번호: <%=s.phone_number%></br> 카테고리: <%=s.category%></a>
+
+    <%end %>
+  </div>
+
+
+
+</div>

@@ -352,7 +352,7 @@ function getPostListParameter() {
 var vfSearch = function() {
   if(searchConditionChk()) {
     var param = getPostListParameter();
-    movePage("/ctt/bb/bulletin?b=14&ls=20&ln=2&dm=l", param);
+    movePage("/ctt/bb/bulletin?b=14&ls=20&ln=9&dm=l", param);
   } else {
     ctt_util.openDialog("\uC815\uBCF4", "\uAE00 \uBC88\uD638"+"\uB294\x28\uC740\x29 \uC22B\uC790\uD0C0\uC785\uC774\uC5EC\uC57C \uD569\uB2C8\uB2E4.");
   }
@@ -473,12 +473,12 @@ $(document).ready(function() {
   <div class="bc-b-block"><!-- prefix & page & button content -->
     <div class="bc-b-section bc-s-topbtnstbl">
       <div class="bc-b-rowsection bc-s-topbtnsrow">        <div class="bc-b-subsection bc-s-toptbllegend">        <select id="listSize" name="listSize">
-  <option value="10"  url="/ctt/bb/bulletin?b=14&ls=10&ln=2&dm=m" >10</option>
+  <option value="10"  url="/ctt/bb/bulletin?b=14&ls=10&ln=9&dm=m" >10</option>
   <option value="20"  selected >20</option>
-  <option value="30"  url="/ctt/bb/bulletin?b=14&ls=30&ln=2&dm=m" >30</option>
-  <option value="40"  url="/ctt/bb/bulletin?b=14&ls=40&ln=2&dm=m" >40</option>
-  <option value="50"  url="/ctt/bb/bulletin?b=14&ls=50&ln=2&dm=m" >50</option>
-  <option value="60"  url="/ctt/bb/bulletin?b=14&ls=60&ln=2&dm=m" >60</option>
+  <option value="30"  url="/ctt/bb/bulletin?b=14&ls=30&ln=9&dm=m" >30</option>
+  <option value="40"  url="/ctt/bb/bulletin?b=14&ls=40&ln=9&dm=m" >40</option>
+  <option value="50"  url="/ctt/bb/bulletin?b=14&ls=50&ln=9&dm=m" >50</option>
+  <option value="60"  url="/ctt/bb/bulletin?b=14&ls=60&ln=9&dm=m" >60</option>
 </select>
 &#xac74;&#x2f;&#xd398;&#xc774;&#xc9c0;(&#xcd1d; <span class="bc-s-sum">18,019</span> &#xac74;)
          </div>
@@ -489,11 +489,11 @@ $(document).ready(function() {
 
 
   $("#manage").click(function() {
-    window.location = "\x2Fctt\x2Fadm\x2FboardAdmin\x2Fview\x3Fb\x3D14\x26rtnUrl\x3D\x252Fctt\x252Fbb\x252Fbulletin\x253Fb\x253D14\x2526ls\x253D20\x2526ln\x253D2\x2526dm\x253Dm";
+    window.location = "\x2Fctt\x2Fadm\x2FboardAdmin\x2Fview\x3Fb\x3D14\x26rtnUrl\x3D\x252Fctt\x252Fbb\x252Fbulletin\x253Fb\x253D14\x2526ls\x253D20\x2526ln\x253D9\x2526dm\x253Dm";
   });
 
   $("#addPost").click(function() {
-    window.location = "\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D2\x26dm\x3Dn";
+    window.location = "\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D9\x26dm\x3Dn";
   });
 
   
@@ -563,12 +563,12 @@ function removePost() {
     }
   });
 
-  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D2\x26dm\x3Dl\x26a\x3Drp", {'postSeqs' : postSeqArr.toString()});
+  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D9\x26dm\x3Dl\x26a\x3Drp", {'postSeqs' : postSeqArr.toString()});
   
   if(vbSuccess) {
     ctt_util.openDialog("\uC815\uBCF4", "\uC815\uC0C1\uC801\uC73C\uB85C \uC0AD\uC81C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
       var param = getPostListParameter();
-      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D2\x26dm\x3Dl", param);
+      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D9\x26dm\x3Dl", param);
     }});
   }
 }
@@ -584,12 +584,12 @@ function deletePost() {
     }
   });
 
-  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D2\x26dm\x3Dl\x26a\x3Ddp", {'postSeqs' : postSeqArr.toString()});
+  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D9\x26dm\x3Dl\x26a\x3Ddp", {'postSeqs' : postSeqArr.toString()});
   
   if(vbSuccess) {
     ctt_util.openDialog("\uC815\uBCF4", "\uC815\uC0C1\uC801\uC73C\uB85C \uC0AD\uC81C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
       var param = getPostListParameter();
-      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D2\x26dm\x3Dl", param);
+      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D9\x26dm\x3Dl", param);
     }});
   }
 }
@@ -605,12 +605,12 @@ function restorePost() {
     }
   });
 
-  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D2\x26dm\x3Dm\x26a\x3Drsp", {'postSeqs' : postSeqArr.toString()});
+  var vbSuccess = ctt.loadUI("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D9\x26dm\x3Dm\x26a\x3Drsp", {'postSeqs' : postSeqArr.toString()});
   
   if(vbSuccess) {
     ctt_util.openDialog("\uC815\uBCF4", "\uC815\uC0C1\uC801\uC73C\uB85C \uBCF5\uC6D0\uB418\uC5C8\uC2B5\uB2C8\uB2E4.", {txt:"\uD655\uC778", func:function() {
       var param = getPostListParameter();
-      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D2\x26dm\x3Dl", param);
+      movePage("\x2Fctt\x2Fbb\x2Fbulletin\x3Fb\x3D14\x26ls\x3D20\x26ln\x3D9\x26dm\x3Dl", param);
     }});
   }
 }
@@ -770,243 +770,243 @@ function saveOrder() {
       <div id="bi_posts" >
         <ul id="posts">
             <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19884">
-            <input type="hidden" name="post_group" value="19884">
+            <input type="hidden" name="post_seq" value="19723">
+            <input type="hidden" name="post_group" value="19723">
             <div>
-              [ 19884 ]
+              [ 19723 ]
             </div>
             <div>
-              <span style="" title="[대외협력팀] 2017년 상반기 한미 대학생 연수(WEST) 참가자 모집 안내(본문 및 붙임문서 수정)">[대외협력팀] 2017년 상반기 한미 대학생 연수(WEST) 참가자 모집 안내(본문 및 붙임문서 수정)</span>             </div>
-            <span class="bc-s-sortdate">2017-02-10</span>
-            <span class="bc-s-sortuser">1024459</span>
+              <span style="" title="재학생 대상 행정서비스 만족도 설문조사 실시 안내">재학생 대상 행정서비스 만족도 설문조사 실시 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-14</span>
+            <span class="bc-s-sortuser">1027973</span>
             
                                                                 </li>
               <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19881">
-            <input type="hidden" name="post_group" value="19881">
+            <input type="hidden" name="post_seq" value="19722">
+            <input type="hidden" name="post_group" value="19722">
             <div>
-              [ 19881 ]
+              [ 19722 ]
             </div>
             <div>
-              <span style="" title="[IPP센터] 디자인 제작 근로장학생 모집(마감)">[IPP센터] 디자인 제작 근로장학생 모집(마감)</span>             </div>
-            <span class="bc-s-sortdate">2017-02-09</span>
-            <span class="bc-s-sortuser">1021732</span>
+              <span style="" title="[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고">[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고</span>             </div>
+            <span class="bc-s-sortdate">2016-12-14</span>
+            <span class="bc-s-sortuser">1028872</span>
             
                                                                 </li>
               <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19880">
-            <input type="hidden" name="post_group" value="19880">
+            <input type="hidden" name="post_seq" value="19721">
+            <input type="hidden" name="post_group" value="19721">
             <div>
-              [ 19880 ]
+              [ 19721 ]
             </div>
             <div>
-              <span style="" title="[마감] 능력개발교육원 단기(3일) 근로장학생 모집">[마감] 능력개발교육원 단기(3일) 근로장학생 모집</span>             </div>
-            <span class="bc-s-sortdate">2017-02-08</span>
-            <span class="bc-s-sortuser">1024253</span>
+              <span style="" title="2016년 6차 모의토익 결시자 문제집 수령 안내">2016년 6차 모의토익 결시자 문제집 수령 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-14</span>
+            <span class="bc-s-sortuser">1025633</span>
             
                                                                 </li>
               <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19879">
-            <input type="hidden" name="post_group" value="19879">
+            <input type="hidden" name="post_seq" value="19720">
+            <input type="hidden" name="post_group" value="19720">
             <div>
-              [ 19879 ]
+              [ 19720 ]
             </div>
             <div>
-              <span style="" title="공학1관 노후스피커 보수작업 알림">공학1관 노후스피커 보수작업 알림</span>             </div>
-            <span class="bc-s-sortdate">2017-02-08</span>
-            <span class="bc-s-sortuser">1024455</span>
+              <span style="" title="인플루엔자 유행주의 안내">인플루엔자 유행주의 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1000289</span>
             
                                                                 </li>
               <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19878">
-            <input type="hidden" name="post_group" value="19878">
+            <input type="hidden" name="post_seq" value="19719">
+            <input type="hidden" name="post_group" value="19719">
             <div>
-              [ 19878 ]
+              [ 19719 ]
             </div>
             <div>
-              <span style="" title="[IPP] 17-1[10기] 한국전력연구원 IPP 모집 안내(전기,전자,신소재,기계)">[IPP] 17-1[10기] 한국전력연구원 IPP 모집 안내(전기,전자,신소재,기계)</span>             </div>
-            <span class="bc-s-sortdate">2017-02-08</span>
+              <span style="" title="2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)">2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1000470</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19718">
+            <input type="hidden" name="post_group" value="19718">
+            <div>
+              [ 19718 ]
+            </div>
+            <div>
+              <span style="" title="금일(12/13화) 잡카페 야간운영 제한"> 금일(12/13화) 잡카페 야간운영 제한</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1029472</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19717">
+            <input type="hidden" name="post_group" value="19717">
+            <div>
+              [ 19717 ]
+            </div>
+            <div>
+              <span style="" title="유콘시스템 기업방문 &quot;드론 아카데미&quot; 참가자 모집">유콘시스템 기업방문 "드론 아카데미" 참가자 모집 </span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1013613</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19716">
+            <input type="hidden" name="post_group" value="19716">
+            <div>
+              [ 19716 ]
+            </div>
+            <div>
+              <span style="" title="●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)">●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1013613</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19715">
+            <input type="hidden" name="post_group" value="19715">
+            <div>
+              [ 19715 ]
+            </div>
+            <div>
+              <span style="" title="2016학년도 2학기 기말고사 격려 간식제공 행사 실시">2016학년도 2학기 기말고사 격려 간식제공 행사 실시</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1000470</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19713">
+            <input type="hidden" name="post_group" value="19713">
+            <div>
+              [ 19713 ]
+            </div>
+            <div>
+              <span style="" title="[긴급]금일 담헌실학관 정전작업 알림(19:00)">[긴급]금일 담헌실학관 정전작업 알림(19:00)</span>             </div>
+            <span class="bc-s-sortdate">2016-12-13</span>
+            <span class="bc-s-sortuser">1016413</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19712">
+            <input type="hidden" name="post_group" value="19712">
+            <div>
+              [ 19712 ]
+            </div>
+            <div>
+              <span style="" title="Tech-Business Innovation Camp 참가자 모집">Tech-Business Innovation Camp 참가자 모집</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1008504</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19711">
+            <input type="hidden" name="post_group" value="19711">
+            <div>
+              [ 19711 ]
+            </div>
+            <div>
+              <span style="" title="[산학협력단 신규과제공고] 2017년도 한국연구재단 이공분야 기초연구사업 신규과제 공모">[산학협력단 신규과제공고] 2017년도 한국연구재단 이공분야 기초연구사업 신규과제 공모</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1000521</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19710">
+            <input type="hidden" name="post_group" value="19710">
+            <div>
+              [ 19710 ]
+            </div>
+            <div>
+              <span style="" title="[특성화/전전통] 동계방학 전공특강 및 어학특강 모집공고">[특성화/전전통] 동계방학 전공특강 및 어학특강 모집공고</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1022532</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19709">
+            <input type="hidden" name="post_group" value="19709">
+            <div>
+              [ 19709 ]
+            </div>
+            <div>
+              <span style="" title="[공지] 글로벌라운지 크리스마스 파티 알림">[공지] 글로벌라운지 크리스마스 파티 알림</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1023312</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19708">
+            <input type="hidden" name="post_group" value="19708">
+            <div>
+              [ 19708 ]
+            </div>
+            <div>
+              <span style="" title="[알림] 대학정문 수로암거 보수보강공사에 따른 일부구간 교통통제(변경)">[알림] 대학정문 수로암거 보수보강공사에 따른 일부구간 교통통제(변경)</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1021276</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19707">
+            <input type="hidden" name="post_group" value="19707">
+            <div>
+              [ 19707 ]
+            </div>
+            <div>
+              <span style="" title="[코리아텍 X 항공대] IoT 융합교육 프로그램">[코리아텍 X 항공대] IoT 융합교육 프로그램</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1008504</span>
+            
+                                                                </li>
+              <li class="ui-sortable-handle">
+            <input type="hidden" name="post_seq" value="19706">
+            <input type="hidden" name="post_group" value="19706">
+            <div>
+              [ 19706 ]
+            </div>
+            <div>
+              <span style="" title="[IPP] 17-1[10기] 사전교육 실시 안내">[IPP] 17-1[10기] 사전교육 실시 안내 </span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
             <span class="bc-s-sortuser">1027619</span>
             
                                                                 </li>
               <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19877">
-            <input type="hidden" name="post_group" value="19877">
+            <input type="hidden" name="post_seq" value="19705">
+            <input type="hidden" name="post_group" value="19705">
             <div>
-              [ 19877 ]
+              [ 19705 ]
             </div>
             <div>
-              <span style="" title="(생협) 2017년 학생식당 식비 단가 조정 알림">(생협) 2017년 학생식당 식비 단가 조정 알림</span>             </div>
-            <span class="bc-s-sortdate">2017-02-07</span>
-            <span class="bc-s-sortuser">1008876</span>
+              <span style="" title="공학 1관 및 교내 네트워크 점검으로 인한 서비스 이용안내">공학 1관 및 교내 네트워크 점검으로 인한 서비스 이용안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1024457</span>
             
                                                                 </li>
               <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19875">
-            <input type="hidden" name="post_group" value="19875">
+            <input type="hidden" name="post_seq" value="19704">
+            <input type="hidden" name="post_group" value="19704">
             <div>
-              [ 19875 ]
+              [ 19704 ]
             </div>
             <div>
-              <span style="" title="방화벽 및 무선AP 점검 작업으로 인한 서비스 이용안내">방화벽 및 무선AP 점검 작업으로 인한 서비스 이용안내</span>             </div>
-            <span class="bc-s-sortdate">2017-02-07</span>
-            <span class="bc-s-sortuser">1000141</span>
+              <span style="" title="[끌어올림]취업역랑강화캠프(자기소개서,면접) 참가자 모집 안내">[끌어올림]취업역랑강화캠프(자기소개서,면접) 참가자 모집 안내</span>             </div>
+            <span class="bc-s-sortdate">2016-12-12</span>
+            <span class="bc-s-sortuser">1013613</span>
             
                                                                 </li>
               <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19874">
-            <input type="hidden" name="post_group" value="19874">
+            <input type="hidden" name="post_seq" value="19703">
+            <input type="hidden" name="post_group" value="19703">
             <div>
-              [ 19874 ]
+              [ 19703 ]
             </div>
             <div>
-              <span style="" title="2016학년도 학위수여식 사진공모전 안내">2016학년도 학위수여식 사진공모전 안내</span>             </div>
-            <span class="bc-s-sortdate">2017-02-06</span>
-            <span class="bc-s-sortuser">1016012</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19873">
-            <input type="hidden" name="post_group" value="19873">
-            <div>
-              [ 19873 ]
-            </div>
-            <div>
-              <span style="" title="KOREATECH 창업보육센터(캠퍼스컴퍼니) 입주기업체 모집공고">KOREATECH 창업보육센터(캠퍼스컴퍼니) 입주기업체 모집공고 </span>             </div>
-            <span class="bc-s-sortdate">2017-02-06</span>
-            <span class="bc-s-sortuser">1001780</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19872">
-            <input type="hidden" name="post_group" value="19872">
-            <div>
-              [ 19872 ]
-            </div>
-            <div>
-              <span style="" title="메카트로닉스공학부 학부사무실 학사조교 모집">메카트로닉스공학부 학부사무실 학사조교 모집</span>             </div>
-            <span class="bc-s-sortdate">2017-02-06</span>
-            <span class="bc-s-sortuser">1000079</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19871">
-            <input type="hidden" name="post_group" value="19871">
-            <div>
-              [ 19871 ]
-            </div>
-            <div>
-              <span style="" title="[마감] 교수학습센터 단기근로장학생 모집">[마감] 교수학습센터 단기근로장학생 모집</span>             </div>
-            <span class="bc-s-sortdate">2017-02-06</span>
-            <span class="bc-s-sortuser">1027700</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19870">
-            <input type="hidden" name="post_group" value="19870">
-            <div>
-              [ 19870 ]
-            </div>
-            <div>
-              <span style="" title="2016학년도 학위수여식 사전참가신청 오픈(2017.2.3.(금) 18:00)">2016학년도 학위수여식 사전참가신청 오픈(2017.2.3.(금) 18:00)</span>             </div>
-            <span class="bc-s-sortdate">2017-02-03</span>
-            <span class="bc-s-sortuser">1016012</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19869">
-            <input type="hidden" name="post_group" value="19869">
-            <div>
-              [ 19869 ]
-            </div>
-            <div>
-              <span style="" title="[마감]학사팀 단기근로장학생 모집 안내(2017.02.08.~02.10. 3일간)">[마감]학사팀 단기근로장학생 모집 안내(2017.02.08.~02.10. 3일간)</span>             </div>
-            <span class="bc-s-sortdate">2017-02-03</span>
-            <span class="bc-s-sortuser">1026214</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19868">
-            <input type="hidden" name="post_group" value="19868">
-            <div>
-              [ 19868 ]
-            </div>
-            <div>
-              <span style="" title="한국기술교육대학교 1캠퍼스 생활관 생활조교 모집">한국기술교육대학교 1캠퍼스 생활관 생활조교 모집</span>             </div>
-            <span class="bc-s-sortdate">2017-02-03</span>
-            <span class="bc-s-sortuser">1008896</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19867">
-            <input type="hidden" name="post_group" value="19867">
-            <div>
-              [ 19867 ]
-            </div>
-            <div>
-              <span style="" title="1캠퍼스 소방종합정밀점검 일정 알림(02.13 ~ 02.17)">1캠퍼스 소방종합정밀점검 일정 알림(02.13 ~ 02.17)</span>             </div>
-            <span class="bc-s-sortdate">2017-02-03</span>
-            <span class="bc-s-sortuser">1024455</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19866">
-            <input type="hidden" name="post_group" value="19866">
-            <div>
-              [ 19866 ]
-            </div>
-            <div>
-              <span style="" title="공학4관A동 노후승강기 교체작업 일정 알림">공학4관A동 노후승강기 교체작업 일정 알림</span>             </div>
-            <span class="bc-s-sortdate">2017-02-02</span>
-            <span class="bc-s-sortuser">1024455</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19865">
-            <input type="hidden" name="post_group" value="19865">
-            <div>
-              [ 19865 ]
-            </div>
-            <div>
-              <span style="" title="[마감] 가구 이동 근장 모집">[마감] 가구 이동 근장 모집</span>             </div>
-            <span class="bc-s-sortdate">2017-02-02</span>
-            <span class="bc-s-sortuser">1027975</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19864">
-            <input type="hidden" name="post_group" value="19864">
-            <div>
-              [ 19864 ]
-            </div>
-            <div>
-              <span style="" title="[마감] [온라인평생교육원] 근장 모집">[마감] [온라인평생교육원] 근장 모집</span>             </div>
-            <span class="bc-s-sortdate">2017-02-02</span>
-            <span class="bc-s-sortuser">1027832</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19863">
-            <input type="hidden" name="post_group" value="19863">
-            <div>
-              [ 19863 ]
-            </div>
-            <div>
-              <span style="" title="[산학협력단 신규과제공고]2017 경제협력권산업육성 기술개발사업 시행계획 공고 외">[산학협력단 신규과제공고]2017 경제협력권산업육성 기술개발사업 시행계획 공고 외</span>             </div>
-            <span class="bc-s-sortdate">2017-02-01</span>
-            <span class="bc-s-sortuser">1000664</span>
-            
-                                                                </li>
-              <li class="ui-sortable-handle">
-            <input type="hidden" name="post_seq" value="19862">
-            <input type="hidden" name="post_group" value="19862">
-            <div>
-              [ 19862 ]
-            </div>
-            <div>
-              <span style="" title="[독립기념관] 2017년도 독립기념관 교육사업 지원인력 모집 공고">[독립기념관] 2017년도 독립기념관 교육사업 지원인력 모집 공고</span>             </div>
-            <span class="bc-s-sortdate">2017-02-01</span>
-            <span class="bc-s-sortuser">1027972</span>
+              <span style="" title="[마감][온라인평생교육원] 이러닝 콘텐츠 기능검수 및 콘텐츠 수정 개발 상주 보조인력 모집">[마감][온라인평생교육원] 이러닝 콘텐츠 기능검수 및 콘텐츠 수정 개발 상주 보조인력 모집</span>             </div>
+            <span class="bc-s-sortdate">2016-12-09</span>
+            <span class="bc-s-sortuser">1026972</span>
             
                                                                 </li>
           </ul>
@@ -1048,164 +1048,164 @@ function saveOrder() {
       </tr>
     </thead>
     <tbody>
-              <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19884">
-                      <td class="bc-s-post_seq">19884</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[대외협력팀] 2017년 상반기 한미 대학생 연수(WEST) 참가자 모집 안내(본문 및 붙임문서 수정)">[대외협력팀] 2017년 상반기 한미 대학생 연수(WEST) 참가자 모집 안내(본문 및 붙임문서 수정)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-10</td>
-                        <td class="bc-s-cre_user_name">&#xb300;&#xc678;&#xd611;&#xb825;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">382
+              <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19723">
+                      <td class="bc-s-post_seq">19723</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="재학생 대상 행정서비스 만족도 설문조사 실시 안내">재학생 대상 행정서비스 만족도 설문조사 실시 안내</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-14</td>
+                        <td class="bc-s-cre_user_name">&#xc804;&#xb7b5;&#xd3c9;&#xac00;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">271
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19881">
-                      <td class="bc-s-post_seq">19881</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[IPP센터] 디자인 제작 근로장학생 모집(마감)">[IPP센터] 디자인 제작 근로장학생 모집(마감)</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-09</td>
-                        <td class="bc-s-cre_user_name">IPP&#xc13c;&#xd130;</td>
-                        <td class="bc-s-visit_cnt">378
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19722">
+                      <td class="bc-s-post_seq">19722</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고">[LINC사업단]2017년도 풀뿌리기업육성사업 지원 계획 모집 공고</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-14</td>
+                        <td class="bc-s-cre_user_name">LINC&#xc0ac;&#xc5c5;&#xb2e8;</td>
+                        <td class="bc-s-visit_cnt">344
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19880">
-                      <td class="bc-s-post_seq">19880</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[마감] 능력개발교육원 단기(3일) 근로장학생 모집">[마감] 능력개발교육원 단기(3일) 근로장학생 모집</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-08</td>
-                        <td class="bc-s-cre_user_name">&#xae40;&#xb098;&#xb77c;</td>
-                        <td class="bc-s-visit_cnt">514
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19721">
+                      <td class="bc-s-post_seq">19721</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016년 6차 모의토익 결시자 문제집 수령 안내">2016년 6차 모의토익 결시자 문제집 수령 안내</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-14</td>
+                        <td class="bc-s-cre_user_name">&#xad6d;&#xc81c;&#xad50;&#xc721;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">123
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19879">
-                      <td class="bc-s-post_seq">19879</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="공학1관 노후스피커 보수작업 알림">공학1관 노후스피커 보수작업 알림</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-08</td>
-                        <td class="bc-s-cre_user_name">&#xc2dc;&#xc124;&#xad00;&#xb9ac;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">114
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19720">
+                      <td class="bc-s-post_seq">19720</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="인플루엔자 유행주의 안내">인플루엔자 유행주의 안내</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xbcf4;&#xac74;&#xc2e4;</td>
+                        <td class="bc-s-visit_cnt">443
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19878">
-                      <td class="bc-s-post_seq">19878</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[IPP] 17-1[10기] 한국전력연구원 IPP 모집 안내(전기,전자,신소재,기계)">[IPP] 17-1[10기] 한국전력연구원 IPP 모집 안내(전기,전자,신소재,기계)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-08</td>
-                        <td class="bc-s-cre_user_name">IPP&#xc13c;&#xd130;</td>
-                        <td class="bc-s-visit_cnt">613
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19719">
+                      <td class="bc-s-post_seq">19719</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)">2016학년도 2학기 사회봉사학점 이수관련 제출 서류 알림(전산입력 필수+첨부파일 필독)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xc0ac;&#xd68c;&#xbd09;&#xc0ac;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">588
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19877">
-                      <td class="bc-s-post_seq">19877</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="(생협) 2017년 학생식당 식비 단가 조정 알림">(생협) 2017년 학생식당 식비 단가 조정 알림</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-07</td>
-                        <td class="bc-s-cre_user_name">&#xc0dd;&#xd65c;&#xd611;&#xb3d9;&#xc870;&#xd569;</td>
-                        <td class="bc-s-visit_cnt">949
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19718">
+                      <td class="bc-s-post_seq">19718</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="금일(12/13화) 잡카페 야간운영 제한"> 금일(12/13화) 잡카페 야간운영 제한</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xcde8;&#xc5c5;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">269
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19875">
-                      <td class="bc-s-post_seq">19875</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="방화벽 및 무선AP 점검 작업으로 인한 서비스 이용안내">방화벽 및 무선AP 점검 작업으로 인한 서비스 이용안내</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-07</td>
-                        <td class="bc-s-cre_user_name">&#xc804;&#xc0b0;&#xc815;&#xbcf4;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">135
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19717">
+                      <td class="bc-s-post_seq">19717</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="유콘시스템 기업방문 &quot;드론 아카데미&quot; 참가자 모집">유콘시스템 기업방문 "드론 아카데미" 참가자 모집 </span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xcde8;&#xc5c5;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">354
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19874">
-                      <td class="bc-s-post_seq">19874</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016학년도 학위수여식 사진공모전 안내">2016학년도 학위수여식 사진공모전 안내</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-06</td>
-                        <td class="bc-s-cre_user_name">&#xacbd;&#xc601;&#xc9c0;&#xc6d0;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">482
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19716">
+                      <td class="bc-s-post_seq">19716</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)">●동계방학 취업지원프로그램 운영일정표(16.12~17.2월)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xcde8;&#xc5c5;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">706
 </td>
               </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19873">
-                      <td class="bc-s-post_seq">19873</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="KOREATECH 창업보육센터(캠퍼스컴퍼니) 입주기업체 모집공고">KOREATECH 창업보육센터(캠퍼스컴퍼니) 입주기업체 모집공고 </span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-06</td>
-                        <td class="bc-s-cre_user_name">&#xcc3d;&#xc5c5;&#xbcf4;&#xc721;&#xc13c;&#xd130;</td>
-                        <td class="bc-s-visit_cnt">168
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19872">
-                      <td class="bc-s-post_seq">19872</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="메카트로닉스공학부 학부사무실 학사조교 모집">메카트로닉스공학부 학부사무실 학사조교 모집</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-06</td>
-                        <td class="bc-s-cre_user_name">&#xba54;&#xce74;&#xd2b8;&#xb85c;&#xb2c9;&#xc2a4;&#xacf5;&#xd559;&#xbd80;</td>
-                        <td class="bc-s-visit_cnt">405
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19871">
-                      <td class="bc-s-post_seq">19871</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[마감] 교수학습센터 단기근로장학생 모집">[마감] 교수학습센터 단기근로장학생 모집</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-06</td>
-                        <td class="bc-s-cre_user_name">&#xad50;&#xc218;&#xd559;&#xc2b5;&#xc13c;&#xd130;</td>
-                        <td class="bc-s-visit_cnt">262
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19870">
-                      <td class="bc-s-post_seq">19870</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016학년도 학위수여식 사전참가신청 오픈(2017.2.3.(금) 18:00)">2016학년도 학위수여식 사전참가신청 오픈(2017.2.3.(금) 18:00)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-03</td>
-                        <td class="bc-s-cre_user_name">&#xacbd;&#xc601;&#xc9c0;&#xc6d0;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">758
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19869">
-                      <td class="bc-s-post_seq">19869</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[마감]학사팀 단기근로장학생 모집 안내(2017.02.08.~02.10. 3일간)">[마감]학사팀 단기근로장학생 모집 안내(2017.02.08.~02.10. 3일간)</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-03</td>
-                        <td class="bc-s-cre_user_name">&#xd559;&#xc0ac;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">389
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19868">
-                      <td class="bc-s-post_seq">19868</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="한국기술교육대학교 1캠퍼스 생활관 생활조교 모집">한국기술교육대학교 1캠퍼스 생활관 생활조교 모집</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-03</td>
-                        <td class="bc-s-cre_user_name">1&#xcea0; &#xc0dd;&#xd65c;&#xad00;</td>
-                        <td class="bc-s-visit_cnt">745
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19867">
-                      <td class="bc-s-post_seq">19867</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="1캠퍼스 소방종합정밀점검 일정 알림(02.13 ~ 02.17)">1캠퍼스 소방종합정밀점검 일정 알림(02.13 ~ 02.17)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-03</td>
-                        <td class="bc-s-cre_user_name">&#xc2dc;&#xc124;&#xad00;&#xb9ac;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">85
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19866">
-                      <td class="bc-s-post_seq">19866</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="공학4관A동 노후승강기 교체작업 일정 알림">공학4관A동 노후승강기 교체작업 일정 알림</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-02</td>
-                        <td class="bc-s-cre_user_name">&#xc2dc;&#xc124;&#xad00;&#xb9ac;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">111
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19865">
-                      <td class="bc-s-post_seq">19865</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[마감] 가구 이동 근장 모집">[마감] 가구 이동 근장 모집</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-02</td>
-                        <td class="bc-s-cre_user_name">&#xacbd;&#xc601;&#xc9c0;&#xc6d0;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">375
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19864">
-                      <td class="bc-s-post_seq">19864</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[마감] [온라인평생교육원] 근장 모집">[마감] [온라인평생교육원] 근장 모집</span></div></td>
-                        <td class="bc-s-cre_dt">2017-02-02</td>
-                        <td class="bc-s-cre_user_name">&#xc6a9;&#xb2e4;&#xc601;</td>
-                        <td class="bc-s-visit_cnt">426
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19863">
-                      <td class="bc-s-post_seq">19863</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[산학협력단 신규과제공고]2017 경제협력권산업육성 기술개발사업 시행계획 공고 외">[산학협력단 신규과제공고]2017 경제협력권산업육성 기술개발사업 시행계획 공고 외</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-01</td>
-                        <td class="bc-s-cre_user_name">&#xc5f0;&#xad6c;&#xc9c0;&#xc6d0;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">115
-</td>
-              </tr>
-            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;r&amp;p&#x3d;19862">
-                      <td class="bc-s-post_seq">19862</td>
-                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[독립기념관] 2017년도 독립기념관 교육사업 지원인력 모집 공고">[독립기념관] 2017년도 독립기념관 교육사업 지원인력 모집 공고</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
-                        <td class="bc-s-cre_dt">2017-02-01</td>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19715">
+                      <td class="bc-s-post_seq">19715</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="2016학년도 2학기 기말고사 격려 간식제공 행사 실시">2016학년도 2학기 기말고사 격려 간식제공 행사 실시</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
                         <td class="bc-s-cre_user_name">&#xd559;&#xc0dd;&#xc9c0;&#xc6d0;&#xd300;</td>
-                        <td class="bc-s-visit_cnt">651
+                        <td class="bc-s-visit_cnt">840
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19713">
+                      <td class="bc-s-post_seq">19713</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[긴급]금일 담헌실학관 정전작업 알림(19:00)">[긴급]금일 담헌실학관 정전작업 알림(19:00)</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-13</td>
+                        <td class="bc-s-cre_user_name">&#xc2dc;&#xc124;&#xad00;&#xb9ac;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">217
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19712">
+                      <td class="bc-s-post_seq">19712</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="Tech-Business Innovation Camp 참가자 모집">Tech-Business Innovation Camp 참가자 모집</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xacf5;&#xd559;&#xad50;&#xc721;&#xd601;&#xc2e0;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">584
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19711">
+                      <td class="bc-s-post_seq">19711</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[산학협력단 신규과제공고] 2017년도 한국연구재단 이공분야 기초연구사업 신규과제 공모">[산학협력단 신규과제공고] 2017년도 한국연구재단 이공분야 기초연구사업 신규과제 공모</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xc5f0;&#xad6c;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">253
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19710">
+                      <td class="bc-s-post_seq">19710</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[특성화/전전통] 동계방학 전공특강 및 어학특강 모집공고">[특성화/전전통] 동계방학 전공특강 및 어학특강 모집공고</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xd2b9;&#xc131;&#xd654;&#xc0ac;&#xc5c5;&#xb2e8;</td>
+                        <td class="bc-s-visit_cnt">649
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19709">
+                      <td class="bc-s-post_seq">19709</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[공지] 글로벌라운지 크리스마스 파티 알림">[공지] 글로벌라운지 크리스마스 파티 알림</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xad6d;&#xc81c;&#xad50;&#xc721;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">592
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19708">
+                      <td class="bc-s-post_seq">19708</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[알림] 대학정문 수로암거 보수보강공사에 따른 일부구간 교통통제(변경)">[알림] 대학정문 수로암거 보수보강공사에 따른 일부구간 교통통제(변경)</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xc2dc;&#xc124;&#xad00;&#xb9ac;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">118
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19707">
+                      <td class="bc-s-post_seq">19707</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[코리아텍 X 항공대] IoT 융합교육 프로그램">[코리아텍 X 항공대] IoT 융합교육 프로그램</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xacf5;&#xd559;&#xad50;&#xc721;&#xd601;&#xc2e0;&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">1,166
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19706">
+                      <td class="bc-s-post_seq">19706</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[IPP] 17-1[10기] 사전교육 실시 안내">[IPP] 17-1[10기] 사전교육 실시 안내 </span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">IPP&#xc13c;&#xd130;</td>
+                        <td class="bc-s-visit_cnt">245
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19705">
+                      <td class="bc-s-post_seq">19705</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="공학 1관 및 교내 네트워크 점검으로 인한 서비스 이용안내">공학 1관 및 교내 네트워크 점검으로 인한 서비스 이용안내</span></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xc804;&#xc0b0;&#xc815;&#xbcf4;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">155
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19704">
+                      <td class="bc-s-post_seq">19704</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[끌어올림]취업역랑강화캠프(자기소개서,면접) 참가자 모집 안내">[끌어올림]취업역랑강화캠프(자기소개서,면접) 참가자 모집 안내</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-12</td>
+                        <td class="bc-s-cre_user_name">&#xcde8;&#xc5c5;&#xc9c0;&#xc6d0;&#xd300;</td>
+                        <td class="bc-s-visit_cnt">244
+</td>
+              </tr>
+            <tr data-name="post_list" class="" data-url="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;r&amp;p&#x3d;19703">
+                      <td class="bc-s-post_seq">19703</td>
+                        <td class="bc-s-txtval bc-s-title  "><div><span style="" title="[마감][온라인평생교육원] 이러닝 콘텐츠 기능검수 및 콘텐츠 수정 개발 상주 보조인력 모집">[마감][온라인평생교육원] 이러닝 콘텐츠 기능검수 및 콘텐츠 수정 개발 상주 보조인력 모집</span></div><div><img style="border:0;" src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;attach_file.gif"/></div></td>
+                        <td class="bc-s-cre_dt">2016-12-09</td>
+                        <td class="bc-s-cre_user_name">&#xc628;&#xb77c;&#xc778;&#xd3c9;&#xc0dd;&#xad50;&#xc721;&#xc6d0;</td>
+                        <td class="bc-s-visit_cnt">438
 </td>
               </tr>
       </tbody>
@@ -1224,14 +1224,14 @@ function saveOrder() {
                 <img src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;list_page_previous.gif"  alt="&#xc774;&#xc804;&#xd398;&#xc774;&#xc9c0;">   
     <!-- onmouseover="imgOver(this)" onmouseout="imgOut(this)" --> 
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;1&amp;dm&#x3d;m" >1</a>
-                <b>2</b>
+                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;2&amp;dm&#x3d;m" >2</a>
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;3&amp;dm&#x3d;m" >3</a>
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;4&amp;dm&#x3d;m" >4</a>
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;5&amp;dm&#x3d;m" >5</a>
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;6&amp;dm&#x3d;m" >6</a>
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;7&amp;dm&#x3d;m" >7</a>
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;8&amp;dm&#x3d;m" >8</a>
-                <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;9&amp;dm&#x3d;m" >9</a>
+                <b>9</b>
                 <a style="vertical-align: super;"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;10&amp;dm&#x3d;m" >10</a>
                 <a class="bc-s-pageidxnext"  href="&#x2f;ctt&#x2f;bb&#x2f;bulletin&#x3f;b&#x3d;14&amp;ls&#x3d;20&amp;ln&#x3d;11&amp;dm&#x3d;m" >
         <img src="&#x2f;eXPortal&#x2f;ctt&#x2f;images&#x2f;list_page_next.gif" alt="&#xb2e4;&#xc74c;&#xd398;&#xc774;&#xc9c0;">

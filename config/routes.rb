@@ -3,10 +3,20 @@ Rails.application.routes.draw do
   get 'admin/store'
   get 'admin/index'
   get 'notice' =>'notice#notice'
+  get 'admin/store_write'
+  post 'admin/store_write'
+
+
+  #관리자
+
+  post 'admin/store'
+
+
+  #주변상점 라우팅
   get 'store/store_index'
 
 
-  #회원가입 기능
+  #디바이스
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'ko_tech_talk#index'

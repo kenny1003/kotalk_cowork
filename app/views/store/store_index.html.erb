@@ -4,5 +4,19 @@
 <%= render 'store/category'%>
 
 
+<div id="mainbox">
+  <% @store.each do |s|%>
+    <div id="card">
+
+        <a href="tel:<%=s.phone_number%>"> <!--전화번호 링크 -->
+          <img id ="s_img" src="https://img.clipartfest.com/9d9890bfa24bdf687671514fdd14c0b5_phone-clip-art-images-free-mobile-phone-clip-art_1000-1000.png" alt="" />
+        </a>
+      <div id ="store_title"><%=s.name%></div>
+      <div id ="store_content"><%=s.category%></div>
+    </div>
+  <%end%>
+
+</div>
+
 
 

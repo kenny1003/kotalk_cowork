@@ -1,4 +1,4 @@
-.card{
+#card{
     width: 300px;
     height : 150px;
     border: 1px solid gray;
@@ -12,14 +12,15 @@
 #s_img{
     border-radius: 50%;
     width: 70px;
-    margin-top: 50px;
+    margin-top: 5px;
+    margin-left: 3px;
 }
 
 #store_title{
     font-size: 250%;
     font-weight: lighter;
-    margin-left: 10px;
-    margin-top: -50px;
+    margin-left: 80px;
+    margin-top: -60px;
 }
 
 #store_content{
@@ -32,7 +33,7 @@
 #mainbox{
     font-family: calibri;
     box-sizing: border-box;
-    justify-content: left;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
 }
