@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'room' => 'room#index'
+
   get 'admin/store'
   get 'admin/index'
   get 'notice' =>'notice#notice'
