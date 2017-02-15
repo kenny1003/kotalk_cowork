@@ -1,0 +1,24 @@
+<h1 style="text-align:center">주변상점 수정</h1>
+
+
+<div class = "container">
+  <form action="/admin/store_update/<%=@store.id%>" metho="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">상점 이름</label>
+      <input value="<%=@store.name%>" name="store_name" type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+      <label for="exampleInputEmail1">전화번호</label>
+      <input value="<%=@store.phone_number%>" name="store_number" type="text" class="form-control" id="exampleInputEmail1" placeholder="<%=@store.phone_number%>">
+      <label for="exampleInputEmail1">카테고리</label>
+      <input value="<%=@store.category%>" name="store_category" type="text" class="form-control" id="exampleInputEmail1" placeholder="<%=@store.category%>">
+
+    </div>
+    <button type="submit" class="btn btn-default">수정완료</button>
+    <a href="/admin/store_destroy/<%=@store.id%>" class="btn btn-info" role="button">삭제</a>
+  </form>
+
+
+  </br>
+
+
+
+</div>

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get 'admin/store_write'
   post 'admin/store_write'
 
+  get 'admin/store_update_view/:store_id'=>'admin#store_update_view'
+  get 'admin/store_update/:store_id'=>'admin#store_update'
+
+  get 'admin/store_destroy/:store_id'=>'admin#store_destroy'
 
   #관리자
 
