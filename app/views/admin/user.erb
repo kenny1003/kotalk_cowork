@@ -1,0 +1,27 @@
+</br>
+</br>
+
+
+<div class = "container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>이메일주소</th>
+      <th>닉네임</th>
+      <th>관리자체크</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @user.each do |u|%>
+    <tr>
+      <th scope="row"><%=u.id%></th>
+      <td><%=u.email%></td>
+      <td><%=u.nickname%></td>
+      <td><a href="/admin/user_admin/<%=u.id%>"> <%=u.admin_check%></a></td>
+    </tr>
+    <%end %>
+    </tbody>
+  </table>
+</div>

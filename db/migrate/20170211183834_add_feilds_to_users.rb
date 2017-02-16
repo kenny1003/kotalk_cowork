@@ -11,6 +11,10 @@ class AddFeildsToUsers < ActiveRecord::Migration
     #그리고 'registrations_controller.rb' 파일에서 추가한 column 이름 추가 할 것
     #마지막으로 view/devise 파일들을 수정하면 됨
 
+    add_column :users, :admin_check, :boolean, :default => false #관리자 권한 부여
+
+
+
 
 
 

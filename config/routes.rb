@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   #관리자
 
   post 'admin/store'
+  get 'admin/user'
+  get 'admin/user_admin/:user_id' => 'admin#user_admin'
 
 
   #주변상점 라우팅

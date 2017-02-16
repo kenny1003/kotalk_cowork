@@ -5,7 +5,7 @@ class AdminController < ApplicationController
 
 
   def super_user_check #관리자를 찾는 코드로 이것은 수정필요, 현재는 1@gmail.com 아이디만 관리자페이지 열람가능
-    if current_user.email == '1@gmail.com'
+    if current_user.admin_check
 
     else
       redirect_to '/'
@@ -49,6 +49,18 @@ class AdminController < ApplicationController
     @store.destroy
     redirect_to '/admin/store'
 
+  end
+
+  def user
+    @user = User.all
+
+  end
+
+  def user_admin
+    @user = User.find(params[:user_id])
+    @user.toggle(:admin_check) #토글한다.
+    @user.save
+    redirect_to '/admin/user'
   end
 
 

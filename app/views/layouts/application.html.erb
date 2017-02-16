@@ -41,19 +41,27 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=current_user.email%> <span class="caret"></span></a>
             <ul class="dropdown-menu">
+              <% if current_user.admin_check %>
+                  <li><a href="/admin/index">관리자페이지</a></li>
+                  <li role="separator" class="divider"></li>
+              <% end %>
+
+
               <li><a href="#">마이페이지</a></li>
-              <li><a href="/admin/index">관리자페이지</a></li>
+              <li role="separator" class="divider"></li>
+
+
               <li><a href="/">>>home<<</a></li>
 
               <li><a href="/board">한줄게시판</a></li>
               <li><a href="/store/store_index">주변상점</a></li>
-              <li><a href="/admin/index">교내번호</a></li>
-              <li><a href="/admin/index">셔틀버스</a></li>
+              <li><a href="#">교내번호</a></li>
+              <li><a href="#">셔틀버스</a></li>
               <li><a href="/room">원룸</a></li>
-              <li><a href="/admin/index">시간표</a></li>
-              <li><a href="/admin/index">공지사항</a></li>
-              <li><a href="/admin/index">족보나라</a></li>
-              <li><a href="/admin/index">도서관</a></li>
+              <li><a href="#">시간표</a></li>
+              <li><a href="#">공지사항</a></li>
+              <li><a href="#">족보나라</a></li>
+              <li><a href="#">도서관</a></li>
 
               <li role="separator" class="divider"></li>
               <li><a href="/users/sign_out">로그아웃</a></li>
