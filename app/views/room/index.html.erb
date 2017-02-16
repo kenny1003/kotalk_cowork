@@ -65,13 +65,20 @@
           zoom: 18,
           center: {lat: 36.768083, lng: 127.283006}
         });
-        
+      
+        var image = '/app/assets/images/house.png';
         var beachMarker = new google.maps.Marker({
           position: {lat: 36.768083, lng: 127.283006},
           map: map,
-          title: "hello world!"
+          icon: image
         });
       }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt7vAfW-ogiOhhcodx-m0r9r0spq-iPbY&callback=initMap"
+        async defer></script>
+  </body>
+</html>
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt7vAfW-ogiOhhcodx-m0r9r0spq-iPbY&callback=initMap" async defer></script>

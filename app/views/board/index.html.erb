@@ -1,54 +1,72 @@
-<div class="container" style="margin-left:30px; margin-top:30px;">
-  <h1>한줄게시판</h1> <br>
-  <table class="table table-bordered" style="text-align:center;">
-    <tr style="font-weight:bold; color:white; background-color:gray;">
-      <td class="col-md-1">글번호</td>
-      <td class="col-md-8">제목</td>
-      <td class="col-md-1">등록일</td>
-      <td class="col-md-1">작성자</td>
-      <td class="col-md-1">조회수</td>
-    </tr>
-    <% @post.each do |p| %>
-      <tr>
-        <td><%= p.id %></td>
-        <td class="title" onclick="location.href='/board/view_post/<%= p.id %>'" style="text-align:left"><%= p.title %></td>
-        <td><%= (p.created_at).in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></td>
-        <td><%= p.name %></td>
-        <td><%= p.hits %></td>
-      </tr>
-    <% end %>
-  </table>
-  <button type="submit" onclick="location.href='/board/write_post_view'" class="btn btn-default">글쓰기</button>
-  
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li>
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  
-</div>
-<hr>
 
-<div class="row" style="height:50px;">
-  <div class="col-md-8"></div>
-  <div class="col-md-1" style="text=align:right">ⓒ nemoland  </div>
-  <div class="col-md-3"></div>
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<style>
-  td.title:hover { color:black; font-weight:bold; text-decoration:underline; cursor:pointer; }
-</style>
+    <title>ㅋㅌㅌ : 코리아텍을 위한 톡 커뮤니티</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/stylesheet/css/bootstrap.css" rel="stylesheet">
+	  <link href="assets/stylesheet/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="assets/stylesheet/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+  <!--navbar code는 application.html.erb 파일의 body 부분으로 이동 ->계속 반복되는 부분이므로 -->
+  	<div id="header" style="padding-top:40px;">
+      <div class="container" style="text-align:center; margin-top:40px; margin-bottom:60px; margin-left:auto; margin-right:auto; vertical-align:middle;">
+        <button type="submit" onclick="location.href='/board/write_post_view'" class="btn btn-default" style="float:right; margin-bottom:10px;">글쓰기</button>
+        <table id "list" class="table table-bordered">
+          <tr style="font-weight:bold; color:white; background-color:gray;">
+            <td class="col-md-1">글번호</td>
+            <td class="col-md-8">제목</td>
+            <td class="col-md-1">등록일</td>
+            <td class="col-md-1">작성자</td>
+            <td class="col-md-1">조회수</td>
+          </tr>
+          <% @post.each do |p| %>
+            <tr>
+              <td><%= p.id %></td>
+              <td class="title" onclick="location.href='/board/view_post/<%= p.id %>'" style="text-align:left"><%= p.title %></td>
+              <td><%= (p.created_at).in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></td>
+              <td><%= p.name %></td>
+              <td><%= p.hits %></td>
+            </tr>
+          <% end %>
+        </table>
+      
+        <div id="footer">
+          <p class="copyright" style="text-align:center; text-weight:bold">&copy; NEMOLAND</p>
+      	</div>
+      	<!-- 풋터 더 알아보고 고정시킬것 -->
+      </div>
+  	</div>
+  	
+  	
+  	<div class="container">
+    	<div class="list-group">
+    	  <% @post.each do |p| %>
+          <a href="/board/view_post/<%= p.id %>" class="list-group-item list-group-item-action flex-column align-items-start" style="margin:10px;">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1" style="font-weight:bold; font-size:15px;"><%= p.title %></h5>
+              <p class="mb-1" style="font-size:12px;"><%= p.content %></p>
+            </div>
+            <small><%= p.name %></small>
+            <small><small><%= (p.created_at).in_time_zone("Asia/Seoul").strftime("%Y-%m-%d") %></small></small>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  	
+  	
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/javascripts/bootstrap.min.js"></script>
+      
+  </body>
+</html>
