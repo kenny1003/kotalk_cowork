@@ -1,28 +1,34 @@
-<div class="container" style="margin-left:30px; margin-top:30px;">
-    <h1>글쓰기</h1>
-    <form action="/board/write_post" method="POST">
-      <div class="form-group">
-        <label for="name">작성자</label>
-        <input name="name" type="text" class="form-control" id="name1" placeholder="이름을 입력하세요">
+
+
+
+<div class="container" style="text-align:center; margin-top:40px; margin-left:auto; margin-right:auto; vertical-align:middle;">
+  <h1>한줄게시판</h1>
+  <span>- 글쓰기 -</span>
+  <form action="/board/write_post" method="POST" style="margin-top:30px;">
+    <div class="container_2">
+    	<div class="list-group" style="padding-left:15px; padding-right:15px; padding-bottom:50px;">
+        <div class="form-group">
+          <input name="name" type="text" class="form-control" id="name1" placeholder="작성자">
+        </div>
+        <div class="form-group">
+          <input name="title" type="text" class="form-control" id="title1" placeholder="제목">
+        </div>
+        <div class="form-group">
+          <textarea name="content" class="form-control" rows="15" id="content1" placeholder="내용"></textarea>
+        </div>
+        <div class="form-group button" style="float:right;">
+          <button type="submit" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray;">저장</button>
+          <button type="submit" formmethod="GET" formaction="/board" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray;">돌아가기</button>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="label_title">제목</label>
-        <input name="title" type="text" class="form-control" id="title1" placeholder="제목을 입력하세요">
-      </div>
-      <div class="form-group">
-        <label for="label_content">내용 : </label>
-        <textarea name="content" class="form-control" rows="5" id="content1" placeholder="내용을 입력하세요"></textarea>
-      </div>
-      <button type="submit" class="btn btn-default">저장</button>
-      <button type="submit" formmethod="GET" formaction="/board" class="btn btn-default">돌아가기</button>
-    </form>
+    </div>
+  </form>
+  <div id="footer">
+    <p class="copyright" style="text-align:center; text-weight:bold">&copy; NEMOLAND</p>
+	</div>
 </div>
-<hr>
-<div class="row" style="height:50px;">
-    <div class="col-md-8"></div>
-    <div class="col-md-1" style="text=align:right">ⓒ nemoland  </div>
-    <div class="col-md-3"></div>
-</div>
+
+  
 
 <!--
 <script>

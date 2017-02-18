@@ -5,6 +5,7 @@ class CreateBoards < ActiveRecord::Migration
       t.string :title
       t.text :content
       t.integer :hits
+      t.integer :comment_count
 
       t.timestamps null: false
     end

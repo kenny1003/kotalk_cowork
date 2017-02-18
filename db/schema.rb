@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170216101015) do
     t.string   "title"
     t.text     "content"
     t.integer  "hits"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "comment_count"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "comments", force: :cascade do |t|

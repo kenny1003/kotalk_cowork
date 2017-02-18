@@ -11,6 +11,7 @@ class BoardController < ApplicationController
     new_board.title = params[:title]
     new_board.content = params[:content]
     new_board.name = params[:name]
+    new_board.comment_count = 0;
     new_board.hits = 0
     
     if new_board.save
@@ -58,6 +59,9 @@ class BoardController < ApplicationController
     new_comment.password = params[:password]
     
     if new_comment.save
+      @post = Board.find(params[:board_id])
+      @post.comment_count += 1
+      @post. save
       redirect_to :back
     else
       redirect_to :back
