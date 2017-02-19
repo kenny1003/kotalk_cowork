@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'home/phone'
+
   get 'room' => 'room#index'
 
   get 'admin/store'
@@ -22,6 +24,11 @@ Rails.application.routes.draw do
 
   #주변상점 라우팅
   get 'store/store_index'
+  get 'store/store_crawling'
+
+
+  #교내번호
+  get 'phone/phone_crawl'
 
 
   #디바이스
