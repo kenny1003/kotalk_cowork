@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20170219173123) do
     t.string   "title"
     t.text     "content"
     t.integer  "hits"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "comment_count"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -37,14 +38,6 @@ ActiveRecord::Schema.define(version: 20170219173123) do
     t.string   "post_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "phone_books", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone_number"
-    t.string   "email"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "phonebooks", force: :cascade do |t|

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   get 'home/phone'
-
+  
   get 'room' => 'room#index'
 
   get 'admin/store'
@@ -37,7 +37,10 @@ Rails.application.routes.draw do
   root 'ko_tech_talk#index'
   get 'ko_tech_talk/index'
 
-
+  #도서관
+  get 'book' =>'book#book'
+  post 'book/book_search' => 'book#book_search'
+  
   get 'board' => 'board#index'
   get 'board/write_post_view'
   post 'board/write_post'

@@ -47,3 +47,5 @@ end
 
 
 
+#  File.delete("./path/to/#{file}")
+#  파일 삭제
