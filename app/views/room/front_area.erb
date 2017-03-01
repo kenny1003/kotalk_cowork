@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=FukKBp3GtYl3ljJulA_v"></script>
+  </head>
+  
+  <body>
+    <div class="container" style="text-align:center; margin-top:10px; margin-bottom:10px;margin-left:auto; margin-right:auto; vertical-align:middle;">
+      <h1>원룸 정보</h1>
+      <button onclick="location.href='/room/front_area'" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray;">정문</button>
+      <button onclick="location.href='/room/back_area'" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray;">후문</button>
+    </div>
+    <div id="map" style="margin-left:auto; margin-right:auto; vertical-align:middle; width:90%; height:580px;"></div>
+    
+    <script>
+      
+      // 성공시대
+      var marker_01 = new naver.maps.LatLng(36.767678, 127.282311),
+        map = new naver.maps.Map('map', {
+          center: new naver.maps.LatLng(36.768580, 127.283526),
+          zoom: 13
+        }), 
+        marker = new naver.maps.Marker({
+          map: map,
+          position: marker_01
+        });
+    
+        var contentString = [
+          '<div class="iw_inner" style="padding:5px;">',
+          '  <h4 style="text-align:center;">성공시대</h4>',
+          '  <p style="font-size:10px;">구조 : 방1, 화장실1<br />',
+          '    계약기간 : 6개월<br />',
+          '    금액 : 180만원<br />',
+          '    관리비 : 21만원(월 3.5)<br />',
+          '    보증금(환불) : 30만원<br />',
+          '    문의 : 010-6321-7332<br />',
+          '    <br />',
+          '    <a href="#" target="_blank">사진보기(클릭)</a>',
+          '  </p>',
+          '</div>'
+        ].join('');
+    
+        var infowindow = new naver.maps.InfoWindow({
+          content: contentString
+        });
+    
+        naver.maps.Event.addListener(marker, "click", function(e) {
+          if (infowindow.getMap()) {
+            infowindow.close();
+          } else {
+            infowindow.open(map, marker);
+          }
+        });
+        
+      
+      //var marker_02 = new naver.maps.Marker({
+      //  position: new naver.maps.LatLng(36.768293, 127.283973),
+      //  map: map
+      //  //처음처럼
+      //});
+      
+    </script>
+
+  </body>
+</html>

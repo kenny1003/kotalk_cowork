@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,53 +9,87 @@
   </head>
   
   <body>
-    <div id="map" style="width:100%; height:700px;"></div>
+    <div class="container" style="text-align:center; margin-top:10px; margin-bottom:10px;margin-left:auto; margin-right:auto; vertical-align:middle;">
+      <h1>원룸 정보</h1>
+      <button onclick="location.href='/room/front_area'" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray;">정문</button>
+      <button onclick="location.href='/room/back_area'" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray;">후문</button>
+    </div>
+    <div id="map" style="margin-left:auto; margin-right:auto; vertical-align:middle; width:90%; height:580px;"></div>
     
     <script>
       
-      var marker_01 = new naver.maps.LatLng(36.767678, 127.282311),
-        map = new naver.maps.Map('map', {
-          center: new naver.maps.LatLng(36.768048, 127.283526),
-          zoom: 13
-        }),
-        marker = new naver.maps.Marker({
-          map: map,
-          position: marker_01
-        });
-    
-        var contentString = [
-          '<div class="iw_inner" style="padding:5px;">',
-          '  <h4 style="text-align:center;">성공시대</h4>',
-          '  <p style="font-size:10px;">구조 : 방1, 화장실1<br />',
-          '    계약기간 : 6개월<br />',
-          '    금액 : 180만원<br />',
-          '    관리비 : 21만원(월 3.5)<br />',
-          '    보증금(환불) : 30만원<br />',
-          '    문의 : 010-6321-7332<br />',
-          '    <br />',
-          '    <a href="#" target="_blank">사진보기(클릭)</a>',
-          '  </p>',
-          '</div>'
-        ].join('');
-    
-        var infowindow = new naver.maps.InfoWindow({
-          content: contentString
-        });
-    
-        naver.maps.Event.addListener(marker, "click", function(e) {
-          if (infowindow.getMap()) {
-            infowindow.close();
-          } else {
-            infowindow.open(map, marker);
-          }
-        });
-        
+      var map = new naver.maps.Map('map', {
+        center: new naver.maps.LatLng(36.767580, 127.283526),
+        zoom: 11
+      });
       
-      //var marker_02 = new naver.maps.Marker({
-      //  position: new naver.maps.LatLng(36.768293, 127.283973),
-      //  map: map
-      //  //처음처럼
-      //});
+      var polygon_front = new naver.maps.Polygon({
+        map: map,
+        paths: [
+          [
+            new naver.maps.LatLng(36.767565, 127.283648),
+            new naver.maps.LatLng(36.768940, 127.279571),
+            new naver.maps.LatLng(36.770934, 127.279925),
+            new naver.maps.LatLng(36.770822, 127.284785),
+          
+            new naver.maps.LatLng(36.770480, 127.287293),
+            
+            new naver.maps.LatLng(36.768888, 127.284871),
+            new naver.maps.LatLng(36.767822, 127.283498)
+          ]
+        ],
+        fillColor: '#ff0000',
+        fillOpacity: 0.3,
+        strokeColor: '#ff0000',
+        strokeOpacity: 0.6,
+        strokeWeight: 3
+      });
+      
+      var polyline_front = new naver.maps.Polyline({
+        map: map,
+        path: [
+          new naver.maps.LatLng(36.767565, 127.283648),
+          new naver.maps.LatLng(36.768940, 127.279571),
+          new naver.maps.LatLng(36.770934, 127.279925),
+          new naver.maps.LatLng(36.770822, 127.284785),
+          new naver.maps.LatLng(36.770480, 127.287293),
+          new naver.maps.LatLng(36.768888, 127.284871),
+          new naver.maps.LatLng(36.767822, 127.283498)
+        ]
+      });
+      
+      var polygon_back = new naver.maps.Polygon({
+        map: map,
+        paths: [
+          [
+            new naver.maps.LatLng(36.764343, 127.285022),
+            new naver.maps.LatLng(36.765466, 127.284721),
+            new naver.maps.LatLng(36.765498, 127.283418),
+            new naver.maps.LatLng(36.766204, 127.284130),
+            new naver.maps.LatLng(36.767149, 127.284430),
+            new naver.maps.LatLng(36.765731, 127.287917),
+            new naver.maps.LatLng(36.764223, 127.286782)
+          ]
+        ],
+        fillColor: '#ff0000',
+        fillOpacity: 0.3,
+        strokeColor: '#ff0000',
+        strokeOpacity: 0.6,
+        strokeWeight: 3
+      });
+      
+      var polyline_back = new naver.maps.Polyline({
+        map: map,
+        path: [
+          new naver.maps.LatLng(36.764343, 127.285022),
+          new naver.maps.LatLng(36.765466, 127.284721),
+          new naver.maps.LatLng(36.765498, 127.283418),
+          new naver.maps.LatLng(36.766204, 127.284130),
+          new naver.maps.LatLng(36.767149, 127.284430),
+          new naver.maps.LatLng(36.765731, 127.287917),
+          new naver.maps.LatLng(36.764223, 127.286782)
+        ]
+      });
       
     </script>
 

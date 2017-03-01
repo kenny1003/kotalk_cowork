@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'home/phone'
   
   get 'room' => 'room#index'
+  get 'room/front_area'
+  get 'room/back_area'
 
   get 'admin/store'
   get 'admin/index'
