@@ -1,2 +1,7 @@
 <h1>book_search</h1>
-<%=@title%>
+<%=@title_str%>
+<% @search.each do |r| %>
+</br>
+<a href="<%=r.link%>"><%=r.title%></a> <p>time : <%= r.description%></p>
+</br>
+<%end%>
