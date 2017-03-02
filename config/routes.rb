@@ -35,11 +35,12 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'ko_tech_talk#index'
-  get 'ko_tech_talk/index'
+  get 'ko_tech_talk/index'=>'ko_tech_talk/index'
 
   #도서관
   get 'book' =>'book#book'
-  post 'book/book_search' => 'book#book_search'
+  #post 'book/book_search' => 'book#book_search'
+  get 'book/book_search'=> 'book#book_search'
   
   get 'board' => 'board#index'
   get 'board/write_post_view'
