@@ -19,50 +19,46 @@
     
     <script>
       
-      // 성공시대
-      var marker_01 = new naver.maps.LatLng(36.767678, 127.282311),
+      var markers,
         map = new naver.maps.Map('map', {
-          center: new naver.maps.LatLng(36.768580, 127.283526),
+          center: new naver.maps.LatLng(36.768488, 127.283414),
           zoom: 13
         }), 
-        marker = new naver.maps.Marker({
-          map: map,
-          position: marker_01
-        });
-    
-        var contentString = [
-          '<div class="iw_inner" style="padding:5px;">',
-          '  <h4 style="text-align:center;">성공시대</h4>',
-          '  <p style="font-size:10px;">구조 : 방1, 화장실1<br />',
-          '    계약기간 : 6개월<br />',
-          '    금액 : 180만원<br />',
-          '    관리비 : 21만원(월 3.5)<br />',
-          '    보증금(환불) : 30만원<br />',
-          '    문의 : 010-6321-7332<br />',
-          '    <br />',
-          '    <a href="#" target="_blank">사진보기(클릭)</a>',
-          '  </p>',
-          '</div>'
-        ].join('');
-    
-        var infowindow = new naver.maps.InfoWindow({
-          content: contentString
-        });
-    
-        naver.maps.Event.addListener(marker, "click", function(e) {
-          if (infowindow.getMap()) {
-            infowindow.close();
-          } else {
-            infowindow.open(map, marker);
-          }
-        });
-        
-      
-      //var marker_02 = new naver.maps.Marker({
-      //  position: new naver.maps.LatLng(36.768293, 127.283973),
-      //  map: map
-      //  //처음처럼
-      //});
+        <% @room.each do |p| %>
+          <%= p.name %> = new naver.maps.Marker({
+            map: map,
+            position: new naver.maps.LatLng(<%= p.marker %>)
+          });
+          
+          
+          var contentString_<%= p.id %> = [
+            '<div class="iw_inner" style="padding:5px;">',
+            '  <h4 style="text-align:center;"><%= p.title %></h4>',
+            '  <p style="font-size:10px;">구조 : <%= p.structure %><br />',
+            '    계약기간 : <%= p.period %>개월<br />',
+            '    금액 : <%= p.payment %>만원<br />',
+            '    관리비 : <%= p.fee %>만원<br />',
+            '    보증금(환불) : <%= p.deposit %>만원<br />',
+            '    문의 : <%= p.phone_num %><br />',
+            '    <br />',
+            '    <a href="#" target="_blank">사진보기(클릭)</a>',
+            '  </p>',
+            '</div>'
+          ].join('');
+     
+          var infowindow_<%= p.id %> = new naver.maps.InfoWindow({
+            content: contentString_<%= p.id %>
+          });
+          
+          naver.maps.Event.addListener(<%= p.name %>, "click", function(e) {
+            if(infowindow_<%= p.id %>.getMap()) {
+              infowindow_<%= p.id %>.close();
+            } else {
+              infowindow_<%= p.id %>.open(map, <%= p.name %>)
+            }
+          });
+         
+        <% end %>
       
     </script>
 
