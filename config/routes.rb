@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'room' => 'room#index'
   get 'room/front_area'
   get 'room/back_area'
+  get 'room/index'
 
   get 'admin/store'
   get 'admin/index'
