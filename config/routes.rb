@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'inside_number' => 'inside_number#index'
+  get 'inside_number/index'
+
   get 'home/phone'
   
   get 'room' => 'room#index'
