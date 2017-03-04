@@ -9,6 +9,10 @@
   </head>
   
   <body>
+    
+    
+  	
+  	  
     <div class="container" style="text-align:center; margin-top:10px; margin-bottom:10px;margin-left:auto; margin-right:auto; vertical-align:middle;">
       <h1>원룸 정보</h1>
       <button onclick="location.href='/room/front_area'" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray;">정문</button>
@@ -19,212 +23,47 @@
     <script>
       
       // 미래빌리지
-      var marker,
+      var markers,
         map = new naver.maps.Map('map', {
           center: new naver.maps.LatLng(36.765680, 127.285415),
           zoom: 13
         }), 
-        marker_mirae_A= new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.764570, 127.285356)
-        });
-        marker_mirae_B = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.764630, 127.285556)
-        });
-        marker_mirae_C = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.764630, 127.285792)
-        });
-        marker_mirae_D = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.764930, 127.285356)
-        });
-        
-        marker_rexbill = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.765591, 127.283724)
-        });
-        
-        marker_life_01 = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.765589, 127.285092)
-        });
-        marker_life_02 = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.765846, 127.285135)
-        });
-        marker_life_03 = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.766036, 127.285135)
-        });
-        marker_life_04 = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.765605, 127.285478)
-        });
-        marker_life_05 = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.765830, 127.285478)
-        });
-        marker_life_06 = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.766050, 127.285495)
-        });
-        
-        marker_green_A = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.766344, 127.284448)
-        });
-        marker_green_B = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.766258, 127.284748)
-        });
-        marker_green_C = new naver.maps.Marker({
-          map: map,
-          position: new naver.maps.LatLng(36.766017, 127.284662)
-        });
-        
-        
-        
-        var contentString_01 = [
-          '<div class="iw_inner" style="padding:5px;">',
-          '  <h4 style="text-align:center;">미래빌리지 A동</h4>',
-          '  <p style="font-size:10px;">구조 : 9평(방1, 화장실1)<br />',
-          '    계약기간 : 6개월<br />',
-          '    금액 : 200만원<br />',
-          '    관리비 : 20만원<br />',
-          '    보증금(환불) : 30만원<br />',
-          '    문의 : 010-5353-0189<br />',
-          '    <br />',
-          '    <a href="#" target="_blank">사진보기(클릭)</a>',
-          '  </p>',
-          '</div>'
-        ].join('');
-    
-        var infowindow_01 = new naver.maps.InfoWindow({
-          content: contentString_01
-        });
-        
-        naver.maps.Event.addListener(marker_mirae_A, "click", function(e) {
-          if (infowindow_01.getMap()) {
-            infowindow_01.close();
-          } else {
-            infowindow_01.open(map, marker_mirae_A);
-          }
-        });
-        
-        var contentString_02 = [
-          '<div class="iw_inner" style="padding:5px;">',
-          '  <h4 style="text-align:center;">미래빌리지 B동</h4>',
-          '  <p style="font-size:10px;">구조 : 9평(방1, 화장실1)<br />',
-          '    계약기간 : 6개월<br />',
-          '    금액 : 200만원<br />',
-          '    관리비 : 20만원<br />',
-          '    보증금(환불) : 30만원<br />',
-          '    문의 : 010-9823-1799<br />',
-          '    <br />',
-          '    <a href="#" target="_blank">사진보기(클릭)</a>',
-          '  </p>',
-          '</div>'
-        ].join('');
-    
-        var infowindow_02 = new naver.maps.InfoWindow({
-          content: contentString_02
-        });
-        
-        naver.maps.Event.addListener(marker_mirae_B, "click", function(e) {
-          if (infowindow_02.getMap()) {
-            infowindow_02.close();
-          } else {
-            infowindow_02.open(map, marker_mirae_B);
-          }
-        });
-        
-        var contentString_03 = [
-          '<div class="iw_inner" style="padding:5px;">',
-          '  <h4 style="text-align:center;">미래빌리지 C동</h4>',
-          '  <p style="font-size:10px;">구조 : 9평(방1, 화장실1)<br />',
-          '    계약기간 : 6개월<br />',
-          '    금액 : 200만원<br />',
-          '    관리비 : 20만원<br />',
-          '    보증금(환불) : 30만원<br />',
-          '    문의 : 010-4768-3959<br />',
-          '    <br />',
-          '    <a href="#" target="_blank">사진보기(클릭)</a>',
-          '  </p>',
-          '</div>'
-        ].join('');
-    
-        var infowindow_03 = new naver.maps.InfoWindow({
-          content: contentString_03
-        });
-        
-        naver.maps.Event.addListener(marker_mirae_C, "click", function(e) {
-          if (infowindow_03.getMap()) {
-            infowindow_03.close();
-          } else {
-            infowindow_03.open(map, marker_mirae_C);
-          }
-        });
-        
-        var contentString_04 = [
-          '<div class="iw_inner" style="padding:5px;">',
-          '  <h4 style="text-align:center;">미래빌리지 D동</h4>',
-          '  <p style="font-size:10px;">구조 : 9평(방1, 화장실1)<br />',
-          '    계약기간 : 6개월<br />',
-          '    금액 : 200만원<br />',
-          '    관리비 : 20만원<br />',
-          '    보증금(환불) : 30만원<br />',
-          '    문의 : 010-7171-6631<br />',
-          '    <br />',
-          '    <a href="#" target="_blank">사진보기(클릭)</a>',
-          '  </p>',
-          '</div>'
-        ].join('');
-    
-        var infowindow_04 = new naver.maps.InfoWindow({
-          content: contentString_04
-        });
-        
-        naver.maps.Event.addListener(marker_mirae_D, "click", function(e) {
-          if (infowindow_04.getMap()) {
-            infowindow_04.close();
-          } else {
-            infowindow_04.open(map, marker_mirae_D);
-          }
-        });
-        
+        <% @room.each do |p| %>
+          <%= p.name %> = new naver.maps.Marker({
+            map: map,
+            position: new naver.maps.LatLng(<%= p.marker %>)
+          });
+          
+          
+          var contentString_<%= p.id %> = [
+            '<div class="iw_inner" style="padding:5px;">',
+            '  <h4 style="text-align:center;"><%= p.title %></h4>',
+            '  <p style="font-size:10px;">구조 : <%= p.structure %><br />',
+            '    계약기간 : <%= p.period %>개월<br />',
+            '    금액 : <%= p.payment %>만원<br />',
+            '    관리비 : <%= p.fee %>만원<br />',
+            '    보증금(환불) : <%= p.deposit %>만원<br />',
+            '    문의 : <%= p.phone_num %><br />',
+            '    <br />',
+            '    <a href="#" target="_blank">사진보기(클릭)</a>',
+            '  </p>',
+            '</div>'
+          ].join('');
       
-      //var marker_02 = new naver.maps.Marker({
-      //  position: new naver.maps.LatLng(36.768293, 127.283973),
-      //  map: map
-      //  //처음처럼
-      //});
-      
-      
-      var markers = [],
-          infoWindows = [];
-
-      markers.push(marker);
-      infoWindows.push(infoWindow);
-
-      function getClickHandler(seq) {
-        return function(e) {
-          var marker = markers[seq],
-            infoWindow = infoWindows[seq];
-      
-            if (infoWindow.getMap()) {
-              infoWindow.close();
+          var infowindow_<%= p.id %> = new naver.maps.InfoWindow({
+            content: contentString_<%= p.id %>
+          });
+          
+          naver.maps.Event.addListener(<%= p.name %>, "click", function(e) {
+            if(infowindow_<%= p.id %>.getMap()) {
+              infowindow_<%= p.id %>.close();
             } else {
-              infoWindow.open(map, marker);
+              infowindow_<%= p.id %>.open(map, <%= p.name %>)
             }
-        }
-      }
-
-      for (var i=0, ii=markers.length; i<ii; i++) {
-        naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
-      }
-      
+          });
+        
+        <% end %>
+        
     </script>
 
   </body>
