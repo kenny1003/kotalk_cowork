@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   #주변상점 라우팅
   get 'store/store_index'
   get 'store/store_crawling'
+  get 'store/store_find'
+  get 'store/store_show'
 
 
   #교내번호

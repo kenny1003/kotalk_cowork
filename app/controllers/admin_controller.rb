@@ -26,7 +26,22 @@ class AdminController < ApplicationController
     @store.phone_number=params[:store_number]
     @store.category=params[:store_category]
     @store.save
-    redirect_to '/admin/store'
+
+    @category = Storecategory.new
+    @category.category = params[:store_category]
+
+    if Storecategory.exists?(:category=>"#{params[:store_category]}")
+      redirect_to '/admin/store'
+    else
+      @category.save
+      redirect_to '/admin/store'
+
+    end
+
+
+
+
+
 
   end
 

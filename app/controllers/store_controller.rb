@@ -1,8 +1,17 @@
 class StoreController < ApplicationController
   def store_index
     @store = Store.all
+    @category = Storecategory.all
+  end
 
+  def store_find
+    @store = Store.all
+    @category = Storecategory.all
+  end
 
+  def store_show
+    @store = Store.all
+    @category = Storecategory.all
   end
 
   def store_crawling

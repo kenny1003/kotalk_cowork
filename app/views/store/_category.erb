@@ -1,1 +1,35 @@
 <!--메뉴 카테고리만 계속 반복해서 나와야 하므로 부분템플릿으로 출력 -->
+
+<div id = storecategory>
+  <div id ="store_content">
+    <a name="foo" href="/store/store_index" >
+      <div id ="store_content" class="btn btn-primary btn-md btn-warning">전체보기</div>
+    </a>
+
+  <% @category.each do |s| %>
+
+      <a href="/store/store_category">
+        <div id ="store_content" class="btn btn-primary btn-md btn-info">
+          <%=s.category%>
+        </div>
+      </a>
+
+
+  <% end %>
+  </div>
+
+</div>
+
+<form action = "/store/ store_index" metho = "post">
+
+    <div id="custom-search-input">
+      <div class="input-group">
+        <input type="text" class="form-control input-lg" name = "search" placeholder="오늘 뭐 먹지?" />
+        <span class="input-group-btn">
+          <button class="btn btn-info btn-lg" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+</form>
