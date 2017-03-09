@@ -1,24 +1,15 @@
 class NoticeController < ApplicationController
 def destroy_notice_db
    Notice.delete_all
-
-end
-
-
-def generate_post
-  1.step(10, 1) do |i|
-    puts i
-    `curl -o result_#{i}.html "https://portal.koreatech.ac.kr/ctt/bb/bulletin?b=14&ls=20&ln=#{i}&dm=m"`
-end 
 end
 
 #---------------------------------------
 def crawling_notice
     require 'nokogiri'
-
+    require 'open-uri'
 1.step(10, 1) do |i|
    a=1
-  doc = Nokogiri::HTML(open("result_#{i}.html"))
+  doc = Nokogiri::HTML(open("https://portal.koreatech.ac.kr/ctt/bb/bulletin?b=14&ls=20&ln=#{i}&dm=m"))
   doc.xpath("//tr").each do |y|
     
   doc.css('td')[a].text
@@ -45,16 +36,12 @@ end
     def notice
 if !Notice.exists? or Notice.last.created_at.to_i < (Time.now - 120.minutes).to_i
 destroy_notice_db
-generate_post
 crawling_notice
-
 notice
+
 else
 @every_url=Notice.all
-#puts "#{Notice.last.created_at.to_i}"
-#puts "#{(Time.now - 120.minutes).to_i}"
-#puts "#{(Time.now).to_i}"
-#puts "#{120.minutes.to_i}"
+
 
 end
 end
