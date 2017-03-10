@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+#
+gem 'spreadsheet'
 
 #회원가입 gem
 gem 'devise'
