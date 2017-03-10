@@ -2,8 +2,8 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 #card{
-    width: 300px;
-    height : 150px;
+    width: 350px;
+    height : 170px;
     border: 1px solid gray;
     box-shadow: 1px 1px 3px #888;
     border-top: 10px solid darkorange;
@@ -16,23 +16,25 @@
     border: 1.5px solid black;
     width: 80px;
     height: 60px;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: 10px;
 }
 
 #store_title{
-    font-size: 170%;
+    font-size: 200%;
     font-weight: bold;
-    margin-left: 100px;
-    margin-top: -60px;
+    margin-left: 110px;
+    margin-top: -70px;
 }
 
 #review-star{
-    margin-left: 100px;
+    margin-left: 110px;
+    width: 100px;
+    height: auto;
 }
 
 #store_content{
-    margin-top: 5px;
+    margin-top: 7px;
     margin-left: 10px;
     font-family: segoe ui;
     line-height: 1.4em;
@@ -42,9 +44,9 @@
 #mainbox{
     font-family: calibri;
     box-sizing: border-box;
-    justify-content: left;
-    margin-left: 400px;
-    margin-right: 400px;
+    justify-content: center;
+    margin-left: 300px;
+    margin-right: 300px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -57,7 +59,7 @@
     margin: auto;
 }
 #card_storeshow{
-    width: 700px;
+    width: auto;
     height : auto;
     border: 1px solid gray;
     box-shadow: 1px 1px 3px #888;
@@ -79,6 +81,10 @@
     text-align: center;
 }
 
+.star-rating { width:205px;
+                height: auto;}
+.star-rating,.star-rating span { display:inline-block; height:39px; overflow:hidden; background:url(http://postfiles15.naver.net/20160204_110/inyoung313_1454565091623XyBJm_PNG/star.png?type=w1)no-repeat; }
+.star-rating span{ background-position:left bottom; line-height:0; vertical-align:top; }
 
 
 
