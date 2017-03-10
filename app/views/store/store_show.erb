@@ -1,2 +1,98 @@
+<!--코리아텍 상점 상세 페이지-->
+
+
 <h2 style="text-align:center; color:black ">코리아텍 주변상점</h2>
 <%= render 'store/category'%>
+
+
+<div class = "container">
+
+
+  <div id="mainbox_storeshow">
+    <div id="card_storeshow">
+      <div id ="store_show_title">
+        <h2><%=@store_find.name%></h2>
+        <h2></h2></br>
+
+        <table class = "table">
+          <tbody>
+          <tr>
+            <td style="font-weight:bold" align = "right">선 호 도</td>
+            <td align = "left">
+              <form>
+                <fieldset class="rating">
+                  <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                  <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                  <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                  <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                  <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                  <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                  <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                  <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                  <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                  <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                </fieldset>
+              </form>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td style="font-weight:bold" align = "right">카 테 고 리</td>
+            <td align = "left"><%=@store_find.category%></td>
+          </tr>
+
+
+
+          <tr>
+            <td style="font-weight:bold" align = "right">전 화 번 호</td>
+            <td align = "left"><%=@store_find.phone_number%></td>
+          </tr>
+
+          <tr>
+            <td style="font-weight:bold" align = "right">한 줄 리 뷰</td>
+
+            <td align = "left">
+
+              첫번째리뷰입니다.</br>
+              첫번째리뷰입니다.</br>
+              첫번째리뷰입니다.</br>
+              첫번째리뷰입니다.</br>
+
+
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  코멘트 달기 + 리뷰
+
+
+<h1>별점주기</h1>
+
+<form>
+  <fieldset class="rating">
+    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+  </fieldset>
+</form>
+</div>
