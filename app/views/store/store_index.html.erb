@@ -6,70 +6,46 @@
   <% @store.each do |s|%>
     <div id="card">
 
-        <a href="tel:<%=s.phone_number%>"> <!--전화번호 링크 -->
-          <%if s.category== "치킨"%>
-              <img id ="s_img" src="http://www.pelicana.co.kr/resources/images/menu/best_menu09.jpg" alt="" />
-          <% elsif s.category=="도시락" %>
-              <img id ="s_img" src="http://cfile4.uf.tistory.com/image/27412339565E56A40F6BB7" alt="" />
+
+      <%if s.category== "치킨"%>
+          <img id ="s_img" src="http://www.pelicana.co.kr/resources/images/menu/best_menu09.jpg" alt="" />
+      <% elsif s.category=="도시락" %>
+          <img id ="s_img" src="http://cfile4.uf.tistory.com/image/27412339565E56A40F6BB7" alt="" />
 
 
-          <% else%>
-              <img id ="s_img" src="http://www.proaudiostar.com/media/catalog/product/e/s/esp-sc337-bk_1.jpg" alt="" />
-          <%end%>
+      <% else%>
+          <img id ="s_img" src="http://www.proaudiostar.com/media/catalog/product/e/s/esp-sc337-bk_1.jpg" alt="" />
+      <%end%>
 
-
-        </a>
-      <a href ="/store/store_show">
+      <a href ="/store/store_show/<%=s.id%>">
         <div id ="store_title"><%=s.name%></div>
       </a>
 
       <div id ="review-star">
-        <fieldset class="rating">
+          <span class='star-rating'>
+            <% sum = 0%>
+            <% count = 0%>
+            <% s.storereview.each do |r|%>
+                <% sum += r.star%>
+                <% count += 1.0%>
+            <%end%>
+            <% if count == 0%>
+                <% result = 0%>
+            <% else %>
+                <% result = (sum/count)*20 %>
+            <%end%>
 
-          <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-
-          <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-
-          <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-
-          <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-
-          <label class = "full" for="star3" title="Meh - 3 stars"></label>
-
-          <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-
-          <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-
-          <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-
-          <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-
-          <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-
-        </fieldset>
+           <span style ="width:<%=result%>%"></span>
+          </span>
       </div>
-      <div id ="store_content" class="btn btn-primary btn-md btn-danger">전화하기</div>
+      <!--전화번호 링크 -->
+      <a href="tel:<%=s.phone_number%>">
+        <div id ="store_content" class="btn btn-primary btn-md btn-danger">전화하기</div>
+      </a>
       <div id ="store_content" class="btn btn-primary btn-md btn-warning"><%=s.category%></div>
     </div>
   <%end%>
 
 </div>
-
-<h1>별점주기</h1>
-
-<form>
-  <fieldset class="rating">
-    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-  </fieldset>
-</form>
 
 

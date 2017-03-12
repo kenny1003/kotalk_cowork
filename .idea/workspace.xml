@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bda4c97-71aa-4042-b895-ea519e9e55c4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/hoonstyle.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/hoonstyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/store/store_category.erb" afterPath="$PROJECT_DIR$/app/views/store/store_category.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/store_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/store_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/store.rb" afterPath="$PROJECT_DIR$/app/models/store.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/storereview.rb" afterPath="$PROJECT_DIR$/app/models/storereview.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/store/store_find.erb" afterPath="$PROJECT_DIR$/app/views/store/store_find.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/store/store_index.html.erb" afterPath="$PROJECT_DIR$/app/views/store/store_index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/store/store_show.erb" afterPath="$PROJECT_DIR$/app/views/store/store_show.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170310155118_create_storereviews.rb" afterPath="$PROJECT_DIR$/db/migrate/20170310155118_create_storereviews.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -28,21 +29,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="33" column="47" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="admin_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/admin_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state relative-caret-position="18">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -51,20 +42,21 @@
       <file leaf-file-name="store_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/store_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="486">
+              <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store_find.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/store/store_find.erb">
+      <file leaf-file-name="store_show.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/store/store_show.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+            <state relative-caret-position="182">
+              <caret line="32" column="64" lean-forward="false" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,28 +65,41 @@
       <file leaf-file-name="store_index.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/store/store_index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="45" />
+            <state relative-caret-position="398">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#h2#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store_show.erb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/store/store_show.erb">
+      <file leaf-file-name="board.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/board.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="56" column="93" lean-forward="false" selection-start-line="56" selection-start-column="93" selection-end-line="56" selection-end-column="93" />
-              <folding>
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#span#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/board/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="36" column="119" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="119" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="store_find.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/store/store_find.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,31 +107,29 @@
       <file leaf-file-name="20170310155118_create_storereviews.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20170310155118_create_storereviews.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state relative-caret-position="216">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hoonstyle.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/hoonstyle.css">
+      <file leaf-file-name="storereview.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/storereview.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="36" column="17" lean-forward="false" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+            <state relative-caret-position="54">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store_category.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/store/store_category.erb">
+      <file leaf-file-name="store.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/store.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="54">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,14 +177,16 @@
         <option value="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/admin/store.html.erb" />
         <option value="$PROJECT_DIR$/app/views/admin/store_update_view.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/store/_category.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/store_controller.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20170310155118_create_storereviews.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/hoonstyle.css" />
         <option value="$PROJECT_DIR$/app/views/store/store_category.erb" />
-        <option value="$PROJECT_DIR$/app/views/store/store_index.html.erb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/store/store_find.erb" />
+        <option value="$PROJECT_DIR$/app/models/storereview.rb" />
+        <option value="$PROJECT_DIR$/app/models/store.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20170310155118_create_storereviews.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/store_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/store/store_index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/store/store_show.erb" />
       </list>
     </option>
@@ -194,9 +199,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="59" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1861" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -213,6 +218,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,24 +257,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrate" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kotalk_cowork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kotalk_cowork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -288,10 +278,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="store" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -308,6 +294,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="board" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -360,34 +350,9 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kotalk_cowork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kotalk_cowork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="RailsProjectView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -608,35 +573,36 @@
       <workItem from="1488775969585" duration="8368000" />
       <workItem from="1488799511376" duration="13091000" />
       <workItem from="1488897317068" duration="7966000" />
-      <workItem from="1489138300063" duration="14502000" />
+      <workItem from="1489138300063" duration="15322000" />
+      <workItem from="1489206457720" duration="11317000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92480000" />
+    <option name="totallyTimeSpent" value="104617000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="24" width="1861" height="1056" extended-state="6" />
+    <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18106769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1992295" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24984147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39126018" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -670,28 +636,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20170206164227_create_stores.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/store/store_index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/store.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="false" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/admin/index.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -718,13 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/store.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -879,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -909,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -917,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="58" lean-forward="false" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -925,23 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="33" column="47" lean-forward="true" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,34 +870,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20170310155118_create_storereviews.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/store/_category.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="380">
+          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/hoonstyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="648">
           <caret line="36" column="17" lean-forward="false" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/store/_category.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="23" column="37" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/store_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -988,28 +888,87 @@
     <entry file="file://$PROJECT_DIR$/app/views/store/store_category.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
-          <caret line="26" column="42" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/store/store_index.html.erb">
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#h2#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="288">
+          <caret line="35" column="51" lean-forward="false" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/storereview.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/store.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170310155118_create_storereviews.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/board.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/board/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="36" column="119" lean-forward="false" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="119" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/store/store_find.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        <state relative-caret-position="270">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/store_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/store/store_index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
@@ -1018,14 +977,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/store/store_show.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="56" column="93" lean-forward="false" selection-start-line="56" selection-start-column="93" selection-end-line="56" selection-end-column="93" />
+        <state relative-caret-position="182">
+          <caret line="32" column="64" lean-forward="false" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
           <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#span#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
