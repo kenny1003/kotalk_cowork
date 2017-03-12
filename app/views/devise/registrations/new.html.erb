@@ -1,10 +1,11 @@
-<div class = "container">
+<div id = "form">
 
-  <h2>회원가입</h2>
-
+  <h1>회원가입</h1>
+  <fieldset>
+    <legend><span class="number">1</span>기본정보</legend>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-
+        <lable></lable>
     <div class="field">
       <%= f.label :이메일주소 %><br />
       <%= f.email_field :email, autofocus: true %>
@@ -18,7 +19,7 @@
     <div class="field">
       <%= f.label :비밀번호 %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %>  글자이상 입력해주세요)</em>
       <% end %><br />
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
@@ -28,11 +29,13 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "가입하기" %>
-    </div>
+
+
+
+      <button id = "button" type="submit">Sign Up</button>
+
   <% end %>
 
   <%= render "devise/shared/links" %>
-
+  </fieldset>
 </div>

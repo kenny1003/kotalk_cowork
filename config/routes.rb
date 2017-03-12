@@ -25,24 +25,18 @@ Rails.application.routes.draw do
   post 'admin/store'
   get 'admin/user'
   get 'admin/user_admin/:user_id' => 'admin#user_admin'
+  get 'admin/test'
 
 
   #주변상점 라우팅
   get 'store/store_index'
   get 'store/store_crawling'
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
   get 'store/store_find'
   get 'store/store_show'
-=======
->>>>>>> bb661c18ffba86622071930d63e1750e061c6dc6
   post 'store/store_find' => 'store#store_find'
   get 'store/store_show/:s_id' => 'store#store_show'
   get 'store/store_category/:s_id'=> 'store#store_category'
   post 'store/store_review' => 'store#store_review'
->>>>>>> 900070c54b6f8d95502c94caf3ced83252020957
 
 
   #교내번호
