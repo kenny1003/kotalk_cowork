@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   post 'admin/store_destroy/:store_id'=>'admin#store_destroy'
 
   #관리자
-
   post 'admin/store'
   get 'admin/user'
   get 'admin/user_admin/:user_id' => 'admin#user_admin'
@@ -30,6 +29,7 @@ Rails.application.routes.draw do
   #주변상점 라우팅
   get 'store/store_index'
   get 'store/store_crawling'
+
   post 'store/store_find' => 'store#store_find'
   get 'store/store_show/:s_id' => 'store#store_show'
   get 'store/store_category/:s_id'=> 'store#store_category'

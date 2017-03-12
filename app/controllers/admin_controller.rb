@@ -7,6 +7,8 @@ class AdminController < ApplicationController
   def super_user_check #관리자를 찾는 코드로 이것은 수정필요, 현재는 1@gmail.com 아이디만 관리자페이지 열람가능
     if current_user.admin_check
 
+    elsif current_user.email == "1@gmail.com"
+
     else
       redirect_to '/'
     end
