@@ -4,12 +4,9 @@ class RoomController < ApplicationController
     @room = Room.all
   end
   
-  def front_area
+  def room_list
     @room = Room.all
   end
   
-  def back_area
-    @room = Room.all
-  end
   
 end
