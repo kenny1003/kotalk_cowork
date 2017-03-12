@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'store/store_show/:s_id' => 'store#store_show'
   get 'store/store_category/:s_id'=> 'store#store_category'
   post 'store/store_review' => 'store#store_review'
+  get 'store/store_spreadsheet' => 'store#store_spreadsheet'
 
 
   #교내번호

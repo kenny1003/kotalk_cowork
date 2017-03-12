@@ -4,6 +4,7 @@
 <div id="mainbox">
   <% @search.each do |s|%>
       <div id="card">
+        <a href ="/store/store_show/<%=s.id%>">
         <%if s.category== "치킨"%>
             <img id ="s_img" src="http://www.pelicana.co.kr/resources/images/menu/best_menu09.jpg" alt="" />
         <% elsif s.category=="도시락" %>
@@ -14,18 +15,31 @@
             <img id ="s_img" src="http://www.proaudiostar.com/media/catalog/product/e/s/esp-sc337-bk_1.jpg" alt="" />
         <%end%>
 
-        <a href ="/store/store_show/<%=s.id%>">
+
           <div id ="store_title"><%=s.name%></div>
-        </a>
+
         <div id ="review-star">
           <span class='star-rating'>
-           <span style ="width:14%"></span>
+            <% sum = 0%>
+            <% count = 0%>
+            <% s.storereview.each do |r|%>
+                <% sum += r.star%>
+                <% count += 1.0%>
+            <%end%>
+            <% if count == 0%>
+                <% result = 0%>
+            <% else %>
+                <% result = (sum/count)*20 %>
+            <%end%>
+
+            <span style ="width:<%=result%>%"></span>
           </span>
         </div>
         <a href="tel:<%=s.phone_number%>">
           <div id ="store_content" class="btn btn-primary btn-md btn-danger">전화하기</div>
         </a>
         <div id ="store_content" class="btn btn-primary btn-md btn-warning"><%=s.category%></div>
+        </a>
       </div>
   <%end%>
 
