@@ -8,5 +8,8 @@ class RoomController < ApplicationController
     @room = Room.all
   end
   
+  def view
+    @room = Room.find(params[:room_id])
+  end
   
 end

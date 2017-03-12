@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'room' => 'room#room_list'
   get 'room/index'
   get 'room/room_list'
+  get 'room/view/:room_id' => 'room#view'
 
   get 'admin/store'
   get 'admin/index'
@@ -16,9 +17,9 @@ Rails.application.routes.draw do
   post 'admin/store_write'
 
   get 'admin/store_update_view/:store_id'=>'admin#store_update_view'
-  post 'admin/store_update/:store_id'=>'admin#store_update'
+  get 'admin/store_update/:store_id'=>'admin#store_update'
 
-  post 'admin/store_destroy/:store_id'=>'admin#store_destroy'
+  get 'admin/store_destroy/:store_id'=>'admin#store_destroy'
 
   #관리자
 
@@ -30,9 +31,8 @@ Rails.application.routes.draw do
   #주변상점 라우팅
   get 'store/store_index'
   get 'store/store_crawling'
-  post 'store/store_find' => 'store#store_find'
-  get 'store/store_show/:s_id' => 'store#store_show'
-  get 'store/store_category/:s_id'=> 'store#store_category'
+  get 'store/store_find'
+  get 'store/store_show'
 
 
   #교내번호
