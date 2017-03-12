@@ -1,2 +1,83 @@
+<!--코리아텍 상점 상세 페이지-->
+
+
 <h2 style="text-align:center; color:black ">코리아텍 주변상점</h2>
 <%= render 'store/category'%>
+
+
+<div class = "container">
+
+
+  <div id="mainbox_storeshow">
+    <div id="card_storeshow">
+      <div id ="store_show_title">
+        <h2><%=@store_find.name%></h2>
+        <h2></h2></br>
+
+        <table class = "table">
+          <tbody>
+          <tr>
+            <td style="font-weight:bold" align = "right">선 호 도</td>
+            <td align = "left">
+              <span class='star-rating'>
+                <span style ="width:14%"></span>
+              </span>
+            </td>
+          </tr>
+
+
+          <tr>
+            <td style="font-weight:bold" align = "right">카 테 고 리</td>
+            <td align = "left"><%=@store_find.category%></td>
+          </tr>
+
+
+
+          <tr>
+            <td style="font-weight:bold" align = "right">전 화 번 호</td>
+            <td align = "left"><%=@store_find.phone_number%></td>
+          </tr>
+
+          <tr>
+            <td style="font-weight:bold" align = "right">한 줄 리 뷰</td>
+
+            <td align = "left">
+
+
+
+              <form action = "#" method = "post">
+                  <div class="form-group">
+                    <select class="form-control" id="star">
+                      <option>★</option>
+                      <option>★★</option>
+                      <option>★★★</option>
+                      <option>★★★★</option>
+                      <option>★★★★★</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="로그인 후 이용 할 수 있습니다.">
+                    <button type="submit" class="btn btn-default">리뷰남기기</button>
+                  </div>
+              </form>
+              첫번째리뷰입니다.</br>
+              첫번째리뷰입니다.</br>
+              첫번째리뷰입니다.</br>
+              첫번째리뷰입니다.</br>
+
+
+
+
+
+
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </div>
+
+  </div>
+

@@ -8,7 +8,7 @@
 
   <% @category.each do |s| %>
 
-      <a href="/store/store_category">
+      <a href="/store/store_category/<%=s.id%>">
         <div id ="store_content" class="btn btn-primary btn-md btn-info">
           <%=s.category%>
         </div>
@@ -20,7 +20,8 @@
 
 </div>
 
-<form action = "/store/ store_index" metho = "post">
+<!--검색바-->
+<form action = "/store/store_find" method = "post">
 
     <div id="custom-search-input">
       <div class="input-group">

@@ -2,39 +2,23 @@
 <%= render 'store/category'%>
 
 <div id="mainbox">
-  <% @store.each do |s|%>
+  <% @search.each do |s|%>
       <div id="card">
 
         <a class="foo" href="tel:<%=s.phone_number%>"> <!--전화번호 링크 -->
           <img id ="s_img" src="http://www.pelicana.co.kr/resources/images/menu/best_menu09.jpg" alt="" />
         </a>
-        <div id ="store_title"><%=s.name%></div>
+        <a href ="/store/store_show/<%=s.id%>">
+          <div id ="store_title"><%=s.name%></div>
+        </a>
         <div id ="review-star">
-          <fieldset class="rating">
-
-            <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-
-            <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-
-            <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-
-            <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-
-            <label class = "full" for="star3" title="Meh - 3 stars"></label>
-
-            <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-
-            <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-
-            <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-
-            <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-
-            <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-
-          </fieldset>
+          <span class='star-rating'>
+           <span style ="width:14%"></span>
+          </span>
         </div>
-        <div id ="store_content" class="btn btn-primary btn-md btn-danger">전화하기</div>
+        <a href="tel:<%=s.phone_number%>">
+          <div id ="store_content" class="btn btn-primary btn-md btn-danger">전화하기</div>
+        </a>
         <div id ="store_content" class="btn btn-primary btn-md btn-warning"><%=s.category%></div>
       </div>
   <%end%>
