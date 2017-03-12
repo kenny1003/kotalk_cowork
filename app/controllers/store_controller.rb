@@ -32,10 +32,21 @@ class StoreController < ApplicationController
     @show_category = Store.where({category: @category_find.category})
   end
 
+  def store_review
+    @store_review = Storereview.new
+    @store_review.review = params[:review]
+    @store_review.star=params[:star]
+    @store_review.save
+    redirect_to(:back) #현재 페이지로 이동
+
+
+  end
 
 
 
 
+
+  #주변상점 크롤러, 테스트용으로 만든 것임. 실제로 사용하지 않음.
   def store_crawling
     require 'nokogiri'
     require 'open-uri'
