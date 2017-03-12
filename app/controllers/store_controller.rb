@@ -1,7 +1,17 @@
 class StoreController < ApplicationController
+
+  def store_star_rating
+
+
+  end
+
+
+
+
   def store_index
     @store = Store.all
     @category = Storecategory.all
+
   end
 
   def store_find
@@ -20,6 +30,22 @@ class StoreController < ApplicationController
     @category = Storecategory.all
 
     @store_find = Store.find(params[:s_id])
+    sum = 0
+    count = 0
+    @result = 0
+    @store_find.storereview.each do |r|
+      sum += r.star
+      count += 1.0
+
+    end
+
+    if count == 0
+      @result = 0
+    else
+      @result = ((sum/count)*20.0)
+    end
+
+
   end
 
 
@@ -36,6 +62,7 @@ class StoreController < ApplicationController
     @store_review = Storereview.new
     @store_review.review = params[:review]
     @store_review.star=params[:star]
+    @store_review.store_id = params[:store_id]
     @store_review.save
     redirect_to(:back) #현재 페이지로 이동
 

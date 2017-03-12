@@ -4,10 +4,16 @@
 <div id="mainbox">
   <% @search.each do |s|%>
       <div id="card">
+        <%if s.category== "치킨"%>
+            <img id ="s_img" src="http://www.pelicana.co.kr/resources/images/menu/best_menu09.jpg" alt="" />
+        <% elsif s.category=="도시락" %>
+            <img id ="s_img" src="http://cfile4.uf.tistory.com/image/27412339565E56A40F6BB7" alt="" />
 
-        <a class="foo" href="tel:<%=s.phone_number%>"> <!--전화번호 링크 -->
-          <img id ="s_img" src="http://www.pelicana.co.kr/resources/images/menu/best_menu09.jpg" alt="" />
-        </a>
+
+        <% else%>
+            <img id ="s_img" src="http://www.proaudiostar.com/media/catalog/product/e/s/esp-sc337-bk_1.jpg" alt="" />
+        <%end%>
+
         <a href ="/store/store_show/<%=s.id%>">
           <div id ="store_title"><%=s.name%></div>
         </a>
