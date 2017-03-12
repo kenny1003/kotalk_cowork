@@ -42,7 +42,7 @@
     	  
     	  <% @room.each do |p| %>
     	    <div class="col-md-4">
-            <a href="/#" class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top:10px; height:300px;">
+            <a href="/room/view/<%= p.id %>" class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top:10px; height:300px;">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1" style="font-weight:bold; font-size:15px;">
                   <%= p.title %> 
