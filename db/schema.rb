@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170312155152) do
     t.string   "url"
     t.string   "title"
     t.string   "post_time"
+    t.string   "writer"
+    t.integer  "post_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

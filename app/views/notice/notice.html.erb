@@ -1,8 +1,18 @@
 
+ <%if Notice.exists?%>
+           
 <% @every_url.each do |r| %>
+  
   </br>
-  <a href="<%=r.url%>"><%=r.title%></a> <p>time : <%= r.post_time%></p>
+  <a href="<%=r.url%>" target="_top"><%=r.title%></a> <p>time : <%= r.post_time%></p>
+  <a href="<%=r.url%>"  onclick="window.open(this.href,'exam_dialog','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,fullscren=yes,resizable=no');return false;">Start</a>
   </br>
-<% end %>
+  <p>작성자 : <%=r.writer%></p>
+  <p>글번호 : <%=r.post_num%></p>
 
-
+ 
+  
+<%end%>
+<% else%>
+<H1><%=@every_url%> <H1>
+<%end%>
