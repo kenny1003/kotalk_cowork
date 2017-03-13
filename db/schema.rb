@@ -78,8 +78,7 @@ ActiveRecord::Schema.define(version: 20170312155152) do
 
   create_table "storereviews", force: :cascade do |t|
     t.string   "review"
-    t.integer  "star"
-    t.integer  "store_id"
+    t.float    "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

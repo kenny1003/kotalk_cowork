@@ -37,84 +37,94 @@
     </div>
     <hr>
     
+    <!-- 여기까지는 공통 -->
+
+    
   	<div class="container">
     	<div class="list-group">
-  	    <div class="col-md-4">
-          <a href="/room/view/<%= @room.id %>" class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top:10px; height:300px;">
-            <div class="d-flex w-100 justify-content-between">
+  	    <div class="col-md-6">
+  	      <a class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top:10px; height:500px;">
+            <div class="d-flex w-100 justify-content-between"></div>
+            <div style="vertical-align:middle; text-align:center;"><%= image_tag(@room.name+".bmp", :size => "480x360") %></div>
+            <hr>
+            <div style="vertical-align:middle; text-align:center;">
+              <%= image_tag(@room.name+".bmp", :size => "90x60") %>
+              <%= image_tag(@room.name+".bmp", :size => "90x60") %>
+              <%= image_tag(@room.name+".bmp", :size => "90x60") %>
+              <%= image_tag(@room.name+".bmp", :size => "90x60") %>
+              <%= image_tag(@room.name+".bmp", :size => "90x60") %>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-5">
+          <div class="d-flex w-100 justify-content-between">
+    	      <a class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top:10px; height:500px;">
               <h5 class="mb-1" style="font-weight:bold; font-size:15px;">
                 <%= @room.title %> 
                 <span class="badge"><%= @room.payment %> / <%= @room.fee %></span>
                 <small style="padding-left:10px;"><%= @room.period %>개월</small></td>
               </h5> 
-              <p class="mb-1" style="font-size:12px;"><%= @room.structure %> , <%= @room.phone_num %></p>
-            </div>
-            <hr>
-            <div style="vertical-align:middle; text-align:center;"><%= image_tag(@room.name+".bmp", :size => "260x180") %></div>
-          </a>
-        </div>
-      </div>
-    
-    <div class="container" style="margin-left:30px; margin-top:30px;">
-      <table class="table table-bordered" style="text-align:left; margin-bottom:0px;">
-        <tr style="font-weight:bold; color:white;" bgcolor="gray">
-          <td class="col-md-12" style="padding:10px">1</td>
-        </tr>
-      </table>
-      <table class="table table-bordered" style="text-align:center; margin-bottom:0px;">
-        <tr>
-          <td class="col-md-1"><b>작성자</b></td>
-          <td class="col-md-3" style="color:gray;">2</td>
-          <td class="col-md-1"><b>등록일</b></td>
-          <td class="col-md-3" style="color:gray;">3</td>
-          <td class="col-md-1"><b>조회수</b></td>
-          <td class="col-md-3" style="color:gray;">4</td>
-        </tr>
-      </table>
-      <table class="table table-bordered" style="text-align:left; margin-bottom:10px;">
-        <tr width="50px">
-          <td height="300px" class="col-md-12" style="padding-left:25px; padding-top:15px;">5</p></td>
-        </tr>
-      </table>
-      <button type="submit" onclick="location.href='/#'" class="btn btn-default">수정</button>
-      <button type="submit" onclick="location.href='/#'" class="btn btn-default">삭제</button>
-      <button type="submit" onclick="location.href='/#'" class="btn btn-default">목록</button>
-    <hr>
-    
-    <div class="container" style="margin-left:30px; margin-top:30px;">
-      <form action="/#" method="POST">
-        <div style="font-size:13px;">
-          <label class="col-xs-1" for="nickname">닉네임 : </label>
-          <input name="nickname" type="text" class="col-xs-1" id="nickname" placeholder="닉네임" style="width:150px; height:20px; font-size:12px">
-          <div class="col-xs-1"></div>
-          <label class="col-xs-1" for="password">비밀번호 : </label>
-          <input name="password" type="text" class="col-xs-1" id="title" placeholder="비밀번호" style="width:150px; height:20px; font-size:12px">
-        </div>
-        <div class="col-md-10">
-          <textarea name="comment" class="form-control" id="comment_<%=@room.id%>" placeholder="댓글을 입력하세요" style="font-size:12px; height:60px; margin-top:5px;"></textarea>
-        </div>
-        <button value="<%= @room.id %>" type="submit" class="btn btn-default reply_submit" style="height:60px; width:60px; margin-top:28px">등록</button>
-      </form>
-      <br><br>
-      
-      <div class="col-md-10" style="margin-left:10px;">
-          <div>
-            <span style="font-weight:bold;">#</span>
-            <span style="font-size:10px; color:darkgray;">#</span>
-            <span style="float:right">
-              <button class="glyphicon glyphicon-scissors" aria-hidden="true" onclick="#" style="font-align:right;"></button>
-              <button class="glyphicon glyphicon-trash" aria-hidden="true" onclick="#'"></button>
-            </span>
+              <br>
+              
+              <table class="table table-bordered">
+                <tr>
+                  <td class="col-md-4">보증금</td>
+                  <td><%= @room.deposit %><small>만원</small></td>
+                </tr>
+                <tr>
+                  <td>월세</td>
+                  <td><%= @room.payment %><small>만원</small></td>
+                </tr>
+                <tr>
+                  <td>방구조</td>
+                  <td><%= @room.structure %></td>
+                </tr>
+                <tr>
+                  <td>관리비</td>
+                  <td><%= @room.fee %><small>만원</small></td>
+                </tr>
+                <tr>
+                  <td>계약기간</td>
+                  <td><%= @room.period %><small>개월</small></td>
+                </tr>
+                <tr>
+                  <td>전화번호</td>
+                  <td><%= @room.phone_num %></td>
+                </tr>
+                <tr>
+                  <td>상세설명</td>
+                  <td>이곳을 사장님이 착하시고 살기 좋습니다.<br> 그렇습니다. <br> 좋길</td>
+                </tr>
+                
+              </table>
+              
+              
+            </a>
+            
+            
+            
+            <p class="mb-1" style="font-size:12px;"><%= @room.structure %> , <%= @room.phone_num %></p>
           </div>
-          <div style="font-size:12px; margin-top:5px;">#</div>
-    
-          <br>
+          <hr>
+          <div style="vertical-align:middle; text-align:center;"><%= image_tag(@room.name+".bmp", :size => "260x180") %></div>
+        </div>
+        </a>
+        
       </div>
-    </div>
-    <hr>
     
     
-    
+    <!--
+      t.string :name
+      t.string :marker
+      t.string :title
+      t.string :structure
+      t.integer :period
+      t.integer :payment
+      t.integer :fee
+      t.integer :deposit
+      t.string :phone_num
+    -->
     
     
     
