@@ -20,11 +20,23 @@
           <div id ="store_title"><%=s.name%></div>
 
 
-        <div id ="review-star">
-          <span class='star-rating'>
-           <span style ="width:14%"></span>
-          </span>
-        </div>
+          <div id ="review-star">
+              <span class='star-rating'>
+                <% sum = 0%>
+                <% count = 0%>
+                <% s.storereview.each do |r|%>
+                    <% sum += r.star%>
+                    <% count += 1.0%>
+                <%end%>
+                <% if count == 0%>
+                    <% result = 0%>
+                <% else %>
+                    <% result = (sum/count)*20 %>
+                <%end%>
+
+                <span style ="width:<%=result%>%"></span>
+              </span>
+          </div>
         <a href="tel:<%=s.phone_number%>">
           <div id ="store_content" class="btn btn-primary btn-md btn-danger">전화하기</div> <!--전화번호 링크 -->
         </a>

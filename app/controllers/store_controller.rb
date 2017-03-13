@@ -106,16 +106,18 @@ class StoreController < ApplicationController
 
     sheet = Spreadsheet.open('store.xls')
     sheet = sheet.worksheet 0
-    1.step(5, 1) do |i|
+    1.step(20, 1) do |i|
       row=Array.new
       row += sheet.row(i).compact!
 
       if !row.empty?
         puts "#{i}번째"
 
+        @store_info=Store.new
+        @store_category=Storecategory.new #카테고리를 담는 코드
 
         row.each do |k|
-          @store_info=Store.new
+
 
           if row.index(k)==0
             puts "이름 : #{k}"
@@ -125,11 +127,19 @@ class StoreController < ApplicationController
             @store_info.phone=k
           else
             puts "카테고리 : #{k}"
-            store_info="#{k}"
-          end
-          @store_info.save
-        end
+            @store_info.category=k
+            @store_category.category=k
 
+
+
+          end
+        end
+        if Storecategory.exists?(:category=>@store_info.category)
+
+        else
+          @store_category.save
+        end
+        @store_info.save
       else
         break
       end
