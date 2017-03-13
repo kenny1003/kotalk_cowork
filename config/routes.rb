@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'room/index'
   get 'room/room_list'
   get 'room/view/:room_id' => 'room#view'
+  get 'room/room_search' => 'room#room_search'
 
   get 'admin/store'
   get 'admin/index'
