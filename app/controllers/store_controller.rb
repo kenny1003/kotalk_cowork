@@ -103,34 +103,39 @@ class StoreController < ApplicationController
 
   def store_spreadsheet
     require 'spreadsheet'
-
     sheet = Spreadsheet.open('store.xls')
     sheet = sheet.worksheet 0
-    1.step(5, 1) do |i|
+    1.step(20, 1) do |i|
       row=Array.new
+<<<<<<< HEAD
       row += sheet.row(i)
       row=row.compact!
 
+=======
+      row += sheet.row(i).compact!
+>>>>>>> 8d97a156c7e77f7596c8f989fbf15e6b94a8920a
       if !row.empty?
         puts "#{i}번째"
-
-
+        @store_info=Store.new
+        @store_category=Storecategory.new #카테고리를 담는 코드
         row.each do |k|
-        #  @store_info=Store.new
-
           if row.index(k)==0
             puts "이름 : #{k}"
-           # @store_info.name=k
+            @store_info.name=k
           elsif row.index(k) == "#{k}"
             puts "폰번호 : #{k}"
-           # @store_info.phone=k
+            @store_info.phone=k
           else
             puts "카테고리 : #{k}"
-          #  store_info="#{k}"
+            @store_info.category=k
+            @store_category.category=k
           end
-        #  @store_info.save
         end
-
+        if Storecategory.exists?(:category=>@store_info.category)
+        else
+          @store_category.save
+        end
+        @store_info.save
       else
         break
       end
