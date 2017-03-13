@@ -60,11 +60,11 @@
         <div class="col-md-5">
           <div class="d-flex w-100 justify-content-between">
     	      <a class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top:10px; height:500px;">
-              <h5 class="mb-1" style="font-weight:bold; font-size:15px;">
+              <h3 class="mb-1" style="font-weight:bold; font-size:25px; text-align:center">
                 <%= @room.title %> 
                 <span class="badge"><%= @room.payment %> / <%= @room.fee %></span>
                 <small style="padding-left:10px;"><%= @room.period %>개월</small></td>
-              </h5> 
+              </h3> 
               <br>
               
               <table class="table table-bordered">
@@ -96,22 +96,10 @@
                   <td>상세설명</td>
                   <td>이곳을 사장님이 착하시고 살기 좋습니다.<br> 그렇습니다. <br> 좋길</td>
                 </tr>
-                
               </table>
-              
-              
             </a>
-            
-            
-            
-            <p class="mb-1" style="font-size:12px;"><%= @room.structure %> , <%= @room.phone_num %></p>
           </div>
-          <hr>
-          <div style="vertical-align:middle; text-align:center;"><%= image_tag(@room.name+".bmp", :size => "260x180") %></div>
         </div>
-        </a>
-        
-      </div>
     
     
     <!--
