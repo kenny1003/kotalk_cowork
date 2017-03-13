@@ -1,18 +1,77 @@
-
- <%if Notice.exists?%>
-           
-<% @every_url.each do |r| %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=FukKBp3GtYl3ljJulA_v"></script>
+  </head>
   
-  </br>
-  <a href="<%=r.url%>" target="_top"><%=r.title%></a> <p>time : <%= r.post_time%></p>
-  <a href="<%=r.url%>"  onclick="window.open(this.href,'exam_dialog','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,fullscren=yes,resizable=no');return false;">Start</a>
-  </br>
-  <p>작성자 : <%=r.writer%></p>
-  <p>글번호 : <%=r.post_num%></p>
+  <body>
+    
+    
+    <div class="container" style="text-align:center; margin-top:10px; margin-bottom:10px;margin-left:auto; margin-right:auto; vertical-align:middle;">
+      <h1>공지사항</h1>
+    
+      
+      <div class="row" style="margin-top:15px;">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6" style="">
+          <form action = "/room/room_search" method="GET" >
+            <div class="input-group" style="text-align:right;">
+            <input type="text" class="form-control" name="search" placeholder="Search for..." />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-search" style="height:38px; width:38px; font-size:25px; vertical-align:middle; padding-top:5px;"></span>
+              </button>
+            </span>
+          </div>
+          </form>
+        </div>
+        
+        <div class="col-lg-3"></div>
+      </div>
+    </div>
+    <hr>
+    
+    <!-- 여기까지는 공통 -->
 
- 
+
+  <div class="container">
+    	<div class="list-group">
+	      
+  	    <table class="table table-bordered" style="font-weight:bold; text-align:center;">
+          <tr>
+            <td class="col-md-1">글번호</td>
+            <td class="col-md-7">제 목</td>
+            <td class="col-md-2">작성자</td>
+            <td class="col-md-2">날 짜</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="container" style="margin-top:-18px;">
+  	    <table class="table table-bordered">
+        <% if Notice.exists? %>
+          <% @every_url.each do |p| %>
+            <tr onclick="window.open('<%= p.url %>','exam_dialog','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,fullscren=yes,resizable=no'); return false;">
+              <td class="col-md-1" style="text-align:center;"><%= p.post_num %></td>
+              <td class="col-md-7"><%= p.title %></td>
+              <td class="col-md-2" style="text-align:center;"><%= p.writer %></td>
+              <td class="col-md-2" style="text-align:center;"><%= p.post_time %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <h1><%= @every_url %></h1>
+        <% end %>
+        </table>
+        
+        <div class="digg_pagination" style="text-align:center; margin-top:-10px;"><%= will_paginate @every_url %></div>
+    </div>
   
-<%end%>
-<% else%>
-<H1><%=@every_url%> <H1>
-<%end%>
+  </body>
+</html>
+
+

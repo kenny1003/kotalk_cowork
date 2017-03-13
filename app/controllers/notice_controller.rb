@@ -36,36 +36,29 @@ class NoticeController < ApplicationController
 
 #-------------------------------
   def notice
-      if user_signed_in?
-          if current_user.admin_check
-              if !Notice.exists? or Notice.last.created_at.to_i < (Time.now - 120.minutes).to_i
-                  destroy_notice_db
-                  crawling_notice
-                  notice
-
-              else
-                  @every_url=Notice.all
-          
-              end
-              
-            
-         
-          
-          else
-                  @every_url=Notice.all
-              if !Notice.exists?
-                  @every_url="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
-                  
-              end
-          end
-      else 
-              @every_url=Notice.all
-          if !Notice.exists?
-              @every_url="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
-              
-          end
-
+    if user_signed_in?
+      if current_user.admin_check
+        if !Notice.exists? or Notice.last.created_at.to_i < (Time.now - 120.minutes).to_i
+          destroy_notice_db
+          crawling_notice
+          notice
+        else
+          @every_url=Notice.all.paginate(:page => params[:page], :per_page => 10)
+        end
+      
+      else
+        @every_url=Notice.all.paginate(:page => params[:page], :per_page => 10)
+        if !Notice.exists?
+          @every_url="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
+        end
       end
-   end
+    else 
+      @every_url=Notice.all.paginate(:page => params[:page], :per_page => 10)
+      if !Notice.exists?
+        @every_url="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
+      end
+    end
+  end
+  
 end
 
