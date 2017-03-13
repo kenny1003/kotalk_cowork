@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'notice' =>'notice#notice'
+  get 'notice/index'
   
   get 'inside_number' => 'inside_number#index'
   get 'inside_number/index'
@@ -13,7 +16,6 @@ Rails.application.routes.draw do
 
   get 'admin/store'
   get 'admin/index'
-  get 'notice' =>'notice#notice'
   get 'admin/store_write'
   post 'admin/store_write'
 

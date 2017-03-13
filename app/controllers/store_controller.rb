@@ -108,7 +108,8 @@ class StoreController < ApplicationController
     sheet = sheet.worksheet 0
     1.step(5, 1) do |i|
       row=Array.new
-      row += sheet.row(i).compact!
+      row += sheet.row(i)
+      row=row.compact!
 
       if !row.empty?
         puts "#{i}번째"
