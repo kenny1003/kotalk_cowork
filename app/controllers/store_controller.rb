@@ -115,19 +115,19 @@ class StoreController < ApplicationController
 
 
         row.each do |k|
-          @store_info=Store.new
+        #  @store_info=Store.new
 
           if row.index(k)==0
             puts "이름 : #{k}"
-            @store_info.name=k
+           # @store_info.name=k
           elsif row.index(k) == "#{k}"
             puts "폰번호 : #{k}"
-            @store_info.phone=k
+           # @store_info.phone=k
           else
             puts "카테고리 : #{k}"
-            store_info="#{k}"
+          #  store_info="#{k}"
           end
-          @store_info.save
+        #  @store_info.save
         end
 
       else

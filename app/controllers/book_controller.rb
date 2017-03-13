@@ -33,8 +33,10 @@ open(url) do |rss|
     # book database 
     search_book.title=item.title
     search_book.link=item.link
-    search_book.description=item.description
+    search_book.description=item.pubDate
+    #후에 db 수정예정
     #description 뒤에 <br> 글자가 삽입되어있음
+    #위와 같은 이유로  pubDate로 수정
     # rss 자체 오류
     search_book.save
     
