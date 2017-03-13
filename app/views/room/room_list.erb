@@ -15,17 +15,18 @@
       <h1>원룸 정보</h1>
     
       <div class="row" style="margin-top:30px;">
-        
         <div class="col-lg-4" style="margin-left:10px;">
-          <div class="input-group" style="text-align:right;">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search" style="font-size:12px;"></span>
-              </button>
-            </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+          <form action = "/room/room_search" method="GET" >
+            <div class="input-group" style="text-align:right;">
+            <input type="text" class="form-control" name="search" placeholder="Search for..." />
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <span class="glyphicon glyphicon-search" style="height:38px; width:38px; font-size:25px; vertical-align:middle; padding-top:5px;"></span>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
 
         <div class="col-lg-4"></div>
 

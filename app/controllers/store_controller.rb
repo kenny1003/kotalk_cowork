@@ -117,14 +117,14 @@ class StoreController < ApplicationController
         @store_category=Storecategory.new #카테고리를 담는 코드
 
         row.each do |k|
-
+        #  @store_info=Store.new
 
           if row.index(k)==0
             puts "이름 : #{k}"
-            @store_info.name=k
+           # @store_info.name=k
           elsif row.index(k) == "#{k}"
             puts "폰번호 : #{k}"
-            @store_info.phone=k
+           # @store_info.phone=k
           else
             puts "카테고리 : #{k}"
             @store_info.category=k
@@ -132,6 +132,7 @@ class StoreController < ApplicationController
 
 
 
+          end
           end
         end
         if Storecategory.exists?(:category=>@store_info.category)

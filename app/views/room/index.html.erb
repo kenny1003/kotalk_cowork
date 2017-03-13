@@ -13,15 +13,18 @@
       <h1>원룸 정보</h1>
     
       <div class="row" style="margin-top:30px;">
-        
         <div class="col-lg-4" style="margin-left:10px;">
-          <div class="input-group" style="text-align:right;">
-            <input type="text" class="form-control" placeholder="Search for...">
+          <form action = "/room/room_search" method="GET" >
+            <div class="input-group" style="text-align:right;">
+            <input type="text" class="form-control" name="search" placeholder="Search for..." />
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go</button>
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-search" style="height:38px; width:38px; font-size:25px; vertical-align:middle; padding-top:5px;"></span>
+              </button>
             </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+          </div>
+          </form>
+        </div>
 
         <div class="col-lg-4"></div>
 
@@ -83,7 +86,7 @@
             '    보증금(환불) : <%= p.deposit %>만원<br />',
             '    문의 : <%= p.phone_num %><br />',
             '    <br />',
-            '    <a href="#" target="_blank">사진보기(클릭)</a>',
+              '    <a href="/room/view/<%= p.id %>" target="">사진보기(클릭)</a>',
             '  </p>',
             '</div>'
           ].join('');

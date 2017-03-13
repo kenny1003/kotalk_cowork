@@ -14,22 +14,24 @@
     <div class="container" style="text-align:center; margin-top:10px; margin-bottom:10px;margin-left:auto; margin-right:auto; vertical-align:middle;">
       <h1>원룸 정보</h1>
     
+      
       <div class="row" style="margin-top:30px;">
-        
         <div class="col-lg-4" style="margin-left:10px;">
-          <div class="input-group" style="text-align:right;">
-            <input type="text" class="form-control" placeholder="Search for...">
+          <form action = "/room/room_search" method="GET">
+            <div class="input-group" style="text-align:right;">
+            <input type="text" class="form-control" name="search" placeholder="Search for..." />
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search" style="font-size:12px;"></span>
+              <button class="btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-search" style="height:38px; width:38px; font-size:25px; vertical-align:middle; padding-top:5px;"></span>
               </button>
             </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
+          </div>
+          </form>
+        </div>
 
         <div class="col-lg-4"></div>
 
-        <div class="col-lg-3">
+        <div class="col-lg-3" style="margin-top:20px;">
           <button onclick="location.href='/room/index'" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray; margin-left:10px; margin-right:10px;">지도 보기</button>
           <button onclick="location.href='/room/room_list'" class="btn btn-default" style="box-shadow:0 3px 0 0 darkgray; margin-left:10px; margin-right:10px;">목록 보기</button>
         </div>
@@ -60,11 +62,11 @@
         <div class="col-md-5">
           <div class="d-flex w-100 justify-content-between">
     	      <a class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top:10px; height:500px;">
-              <h5 class="mb-1" style="font-weight:bold; font-size:15px;">
+              <h3 class="mb-1" style="font-weight:bold; font-size:25px; text-align:center">
                 <%= @room.title %> 
                 <span class="badge"><%= @room.payment %> / <%= @room.fee %></span>
                 <small style="padding-left:10px;"><%= @room.period %>개월</small></td>
-              </h5> 
+              </h3> 
               <br>
               
               <table class="table table-bordered">
@@ -96,22 +98,10 @@
                   <td>상세설명</td>
                   <td>이곳을 사장님이 착하시고 살기 좋습니다.<br> 그렇습니다. <br> 좋길</td>
                 </tr>
-                
               </table>
-              
-              
             </a>
-            
-            
-            
-            <p class="mb-1" style="font-size:12px;"><%= @room.structure %> , <%= @room.phone_num %></p>
           </div>
-          <hr>
-          <div style="vertical-align:middle; text-align:center;"><%= image_tag(@room.name+".bmp", :size => "260x180") %></div>
         </div>
-        </a>
-        
-      </div>
     
     
     <!--
