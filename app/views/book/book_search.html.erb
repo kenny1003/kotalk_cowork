@@ -36,23 +36,36 @@
     
     <!-- 여기까지는 공통 -->
     
-    <h1>book_search</h1>
-    <%= @title_str %>
-    <% @search.each do |r| %>
-      <a href="<%=r.link%>"><%=r.title%></a>
-      <p>time : <%= r.description%></p>
-    <%end%>
-
-    <!-- 위에 부분 오류 -->
-    
-  </body>
-</html>
-
-
-<h1>book_search</h1>
+   <h1>book_search</h1>
 <%=@title_str%>
 <% @search.each do |r| %>
 </br>
 <a href="<%=r.link%>"><%=r.title%></a> <p>time : <%= r.description%></p>
 </br>
 <%end%>
+<nav>
+  <ul class="pagination">
+  <% if @pre_num!=0 %>
+  <li><form action="/book_search" method="GET">
+        <input name="title" type="hidden" value="<%=@title_value%>">
+        <input name="page" type="hidden" value="<%=@pre_num%>">
+    <button type="submit" aria-label="Previous"><span aria-hidden="true">&laquo;</span></button>
+    </form>
+    <%else%>
+    <li class="disabled"><form action="#" method="GET">
+      
+    <button type="submit" disabled aria-label="Previous"><span aria-hidden="true">&laquo;</span></button>
+    </form>
+    <%end%>
+    
+    <form action="/book/book_search" method="GET">
+      <input name="title" type="hidden" value="<%=@title_value%>">
+        <input name="page" type="hidden" value="<%=@next_num%>">
+    <button type="submit" aria-label="Next"><span aria-hidden="true">&raquo;</span></button>
+    </form>
+    </li>
+  </ul>
+</nav>
+  </body>
+</html>
+

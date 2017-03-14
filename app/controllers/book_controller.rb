@@ -10,10 +10,13 @@ require 'rss'
 require 'open-uri'
 
 title=params[:title]
+@title_value=title
 title= CGI.escape(title)
 # korean lang => encoding
 
-number=params[:hidden_number]
+number=params[:page].to_i
+@pre_num=number -1
+@next_num=number +1
 # hidden type value loading
 url ="http://dasan.kut.ac.kr/API/Search?sid=1&q=ALL%3A#{title}&mf=true&qt=ALL%3A#{title}&f=&br=01&cl=1+2+47+48+49+52+53+54+55+4+5+7+8+10+12+13+46+23+32+35+38+41+45+21+22+17+20+50+44&gr=1+8+2+3+6+5+4+9+7&rl=&pageSize=10&s=NEW&st=DESC&h=&cr=&py=&subj=&facet=Y&nd=&vid=0&tabID=&item=ALL&value=#{title}&x=14&y=20&page=#{number}"
 # dasan Rss URL

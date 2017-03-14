@@ -55,8 +55,8 @@ Rails.application.routes.draw do
 
   #도서관
   get 'book' =>'book#book'
-  #post 'book/book_search' => 'book#book_search'
   get 'book/book_search'=> 'book#book_search'
+  get 'book_search'=> 'book#book_search'
   
   get 'board' => 'board#index'
   get 'board/write_post_view'
