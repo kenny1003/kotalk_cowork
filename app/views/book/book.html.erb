@@ -1,13 +1,40 @@
-<h1>book</h1>
-<div class="container" style="margin-left:30px; margin-top:30px;">
-    <form action="book/book_search" method="GET">
-      <div class="form-group">
-        <label for="name">책이름</label>
-        <input name="hidden_number" type="hidden" value="1">
-        <input name="title" type="text" class="form-control" id="title" placeholder="책이름을 입력하세요">
-      </div>
-      
-      <button type="submit" class="btn btn-default">검색</button>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=FukKBp3GtYl3ljJulA_v"></script>
+  </head>
+  
+  <body>
     
-    </form>
-</div>
+    <div class="container" style="text-align:center; margin-top:10px; margin-bottom:10px;margin-left:auto; margin-right:auto; vertical-align:middle;">
+      <h1>도서 검색</h1>
+      
+      <div class="row" style="margin-top:15px;">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6" style="">
+          <form action="/book/book_search" method="GET">
+            <div class="input-group" style="text-align:right;">
+              <input name="hidden_number" type="hidden" value="1">
+              <input type="text" class="form-control" id="title" name="search" placeholder="Search for..." />
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <span class="glyphicon glyphicon-search" style="height:38px; width:38px; font-size:25px; vertical-align:middle; padding-top:5px;"></span>
+                </button>
+              </span>
+            </div>
+          </form>
+        </div>
+        
+        <div class="col-lg-3"></div>
+      </div>
+    </div>
+    <hr>
+    
+    <!-- 여기까지는 공통 -->
+    
+  </body>
+</html>
