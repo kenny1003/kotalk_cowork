@@ -49,13 +49,13 @@ class NoticeController < ApplicationController
       else
         @every_url=Notice.all.paginate(:page => params[:page], :per_page => 10)
         if !Notice.exists?
-          @every_url="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
+          @no_db="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
         end
       end
     else 
       @every_url=Notice.all.paginate(:page => params[:page], :per_page => 10)
       if !Notice.exists?
-        @every_url="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
+        @no_db="DB에 저장된 공지사항이 없습니다. 관리자에게 문의하세요"
       end
     end
   end
